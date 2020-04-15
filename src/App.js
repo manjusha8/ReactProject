@@ -1,19 +1,29 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import HeaderComponents from './HeaderComponent/HeaderComponent';
-import BannerComponent from './BannerComponent/BannerComponent';
-import Dummy from './DummyComponent/Dummy';
-// import { OuterWrapper } from './Style';
+// import Dummy from './DummyComponent/Dummy';
+import HeaderComponent from './CommonComponents/HeaderComponent/HeaderComponent';
+// import  BannerImage from './CommonComponents/BannerImageComponent/BannerImage';
+// import BannerButtons from './CommonComponents/ReceipeButtons/BannerButtons';
+import MainContent from './Pages/MainComponent/MainContent';
+import StarComponent from './Pages/StarComponent/StarComponent';
+import ChangeBannerItem from './CommonComponents/ChangeBannerComponent/ChangeBannerItem';
+// import '../node_modules/@fortawesome/fontawesome-free/js/all';
+// import '../node_modules/@fortawesome/react-fontawesome';
+
+
 
 function App() {
   return (
     <div className="App">
       
-      <div style = {{maxWidth : '960px' , margin : '0 auto'}}>
-        <HeaderComponents />
-        <BannerComponent />
-        {/* <Dummy/> */}
+      <div >
+        <HeaderComponent />
+        <ChangeBannerItem />
+        {/* <BannerImage />
+        <BannerButtons/> */}
+        <MainContent/>
+        {/* <StarComponent/> */}
       </div>
 
     </div>

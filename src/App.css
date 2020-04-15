@@ -1,6 +1,7 @@
 .App {
   text-align: center;
-  font-family: 'Open Sans,helveticaneue';
+  /* font-family: 'Open Sans,helveticaneue'; */
+  font-family: 'Open Sans', sans-serif,helvetica;
 }
 
 .App-logo {
