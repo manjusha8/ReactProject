@@ -19,14 +19,15 @@ export const Wrapper = styled.div`
 `;
 
 export const CardWrapper = styled.div`
-    width : 225px;
+    width : 210px;
     margin : 0 20px 20px 0;
     height : 100%;
 `;
 
 export const ImageWrapper = styled.div`
-    width : 225px;
-    height:30%;
+    /* width : 225px; */
+    /* position : fixed; */
+    height:225px;
     /* background: rgba(0, 151, 19, 0.1);   */
     position : relative;    
 
@@ -37,7 +38,7 @@ export const ImageWrapper = styled.div`
 `;
 
 export const ViewButtonWrapper = styled.div`
-    width : 225px;
+    width : 210px;
     height:98%;
     position : absolute;
     top : 0;
@@ -50,12 +51,13 @@ export const ContentWrapper = styled.div`
     padding : 20px 25px;
     margin-top: -5px;
     line-height: 26px;
-    height : 70%;
+    height : 150px;
+
 `;
 
 export const Title = styled.div`
        line-height: 26px;
-
+        text-align : center;
 `;
 
 export const Content = styled.div`
@@ -70,7 +72,7 @@ export const Ratings = styled.div`
 
 export const Time = styled.div`
      text-align : right;
-     font-size: size 12;
+     font-size:  12px;
      color : '#909090';
      
 

@@ -4,6 +4,7 @@ export const Wrapper = styled.div`
      /* width : 225px;
      height:30%;
      background: rgba(0, 0, 0, 0.1) */
+     text-align : center;
 `;
 
 export const ViewButtonWrapper = styled.div`

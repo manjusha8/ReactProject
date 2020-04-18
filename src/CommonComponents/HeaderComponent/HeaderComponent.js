@@ -3,7 +3,18 @@ import { Items , Lists , HeaderDiv ,BannerImage,Link , ListItems} from './Header
 import logo from '../../assests/images/logo.jpg';
 
 function HeaderComponent() {
-    const [names, setNames] = useState(['Home', 'Demo', 'Recepies', 'Pages', 'Shop', 'SubmitRecepie']);
+    // ['home','Demo','Recipes','Pages','Shop','Submit Recipe']
+    const [names, setNames] = useState( 
+        [
+            {header : 'home' , url : ('/')},
+            {header : 'Demo' , url : ('/demo')},
+            {header : 'Recipes' , url : ('/viewrecipe')},
+            {header : 'Pages' , url : ('/pages')},
+            {header : 'Shop' , url : ('/shop')},
+            {header : 'Submit Recipe' , url : ('/submitrecipe')}
+
+        ]
+        );
     return (
         <HeaderDiv >
             <BannerImage >
@@ -11,7 +22,11 @@ function HeaderComponent() {
             </BannerImage>
             <Lists >
                 <Items >
-                    {names.map(names => (<ListItems><Link href ='#'>{names}</Link></ListItems>))}
+                    {names.map(names => (
+                    <ListItems>
+                        <Link href ={names.url}>{names.header}</Link>
+                    </ListItems>
+                    ))}
                 </Items>
             </Lists>
         </HeaderDiv>

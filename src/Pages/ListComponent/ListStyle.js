@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
 export const CardWrapper = styled.div`
     margin-top : 20px;
     display : flex;
-    width: 750px;
+    width: 680px;
 `;
 
 export const ImageWrapper = styled.div`
@@ -21,7 +21,7 @@ export const ImageWrapper = styled.div`
 `;
 
 export const ViewButtonWrapper = styled.div`
-    width : 210px;
+    width : 200px;
     height:100%;
     position : absolute;
     top : 0;

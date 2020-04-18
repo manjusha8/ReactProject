@@ -1,13 +1,14 @@
 import React , {Component} from 'react';
-import {MainContentWrapper , LatestRecipes , BreakThrough ,Buttons, GridButton , ListButton} from './MainStyle';
+import {MainContentWrapper , LatestRecipes,LeftWrapper,RightWrapper,SearchWrapper,AuthorWrapper ,Tables, CardWrapper, Cards,BreakThrough ,Buttons, GridButton , ListButton} from './MainStyle';
 import GridCard from '../GridComponent/GridCard';
 import ListCard from '../ListComponent/ListCard';
 import SearchBox from '../SearchComponent/SearchBox';
+import AuthorBox from '../AuthorComponent/AuthorBox';
 
 class MainContent extends Component{
     state ={
         cards: [
-            { id: '0', imgUrl: require('../../assests/images/recipeThumb-01.jpg'), ratings: 5,servings: 5, prepTime: '30 mins', author: 'BY SANDRA FORTIN',recipe: 'Mexican Grilled Corn Recipe'},
+            { id: '0', imgUrl: require('../../assests/images/recipeThumb-01.jpg'), ratings: 5,servings: 5, prepTime: '30 mins', author: 'SANDRA FORTIN',recipe: 'Mexican Grilled Corn Recipe'},
             { id: '1', imgUrl: require('../../assests/images/recipeThumb-02.jpg'), ratings: 4,servings: 4, prepTime: '1 Hr 30 mins', author: 'BY SANDRA FORTIN',recipe: 'Chocolate Cake With Green Tea' },
             { id: '2', imgUrl: require('../../assests/images/recipeThumb-03.jpg'), ratings: 5,servings: 5, prepTime: '45 mins', author: 'BY SANDRA FORTIN',recipe: 'Thai Yellow Curry Chicken' },
             { id: '3', imgUrl: require('../../assests/images/recipeThumb-04.jpg'), ratings: 4,servings: 4,prepTime: '15 mins', author: 'BY SANDRA FORTIN',recipe: 'Avocado Melon Salad With Lime Vinaigrette'},
@@ -49,19 +50,32 @@ class MainContent extends Component{
         return (
             <div>
                 <MainContentWrapper>
-                    <div>
-                    <table><tr>
-                        <LatestRecipes>Latest Recipes </LatestRecipes>
-                        <td style={{width:'600px'}}><hr/></td>
-                        <td style = {{marginLeft : '15px'}}><SearchBox/></td>
-                    </tr></table></div>
-                    <Buttons>
-                        <ListButton onClick = {this.listHandler} state = {this.state.list}>List</ListButton>
-                        <GridButton onClick = {this.gridHandler}  state = {this.state.grid}>Grid</GridButton>
-                    </Buttons>
+                    <LeftWrapper>
+                        <Tables>
+                            <LatestRecipes>Latest Recipes </LatestRecipes>
+                            <span style={{width:'515px' , display: 'inline-block'}}><BreakThrough/></span>
+                        </Tables>
+                        <CardWrapper>
+                            <Buttons>
+                                <ListButton onClick = {this.listHandler} state = {this.state.list}>List</ListButton>
+                                <GridButton onClick = {this.gridHandler}  state = {this.state.grid}>Grid</GridButton>
+                            </Buttons>
+                            <Cards>
+                                { this.state.list ? <ListCard value = {this.state.cards} /> : null}
+                                {this.state.grid ? <GridCard value ={this.state.cards} /> : null}
+                            </Cards>
+                        </CardWrapper>
+                    </LeftWrapper>
+                    <RightWrapper>
+                        <SearchWrapper>
+                            <SearchBox/>
+                        </SearchWrapper>
+                        <AuthorWrapper>
+                            <AuthorBox author = {this.state.cards}/>
+                        </AuthorWrapper>
+                    </RightWrapper>
                 </MainContentWrapper>
-                { this.state.list ? <ListCard value = {this.state.cards}/> : null}
-                {this.state.grid ? <GridCard value ={this.state.cards} click = {this.onHover}/> : null}
+
             </div>
         );
     }

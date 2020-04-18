@@ -2,9 +2,17 @@ import React, { Component} from 'react';
 // import sliderA_01 from '../../images/sliderA_01.jpg';
 import {Wrapper,BannerOverlay,Image ,Button,  BannerWrapper,BannerContent,IconText,Icons,RecipieBtn,ViewRecipieBtn,Text} from './Style'
 import {FaClock ,FaUser ,FaUtensils } from 'react-icons/fa';
-
+// import {browseHistory} from 'react-router';
+// import createHistory from 'history/createBrowserHistory'
+// import { Router } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 function BannerImage(props) {
+
+    const onNavigateHandler = (props) =>
+    {
+        this.props.history.push("/viewrecipes")
+    }
 
         return(
             <Wrapper>
@@ -17,7 +25,7 @@ function BannerImage(props) {
                 <BannerContent>
                     <RecipieBtn>{props.selectedBannerItem.title}</RecipieBtn>
                     <Text>{props.selectedBannerItem.recipe}</Text>
-                    <ViewRecipieBtn><Button>VIEW RECIPIE</Button></ViewRecipieBtn>
+                    <ViewRecipieBtn><Button onClick={() => this.onNavigateHandler.bind(this)}>VIEW RECIPIE</Button></ViewRecipieBtn>
                     <Icons>
                     <FaUtensils color = {'white'}/> <IconText>${props.selectedBannerItem.servings} servings</IconText>
                     <FaClock color = {'white'}/><IconText>{props.selectedBannerItem.prepTime}</IconText>
