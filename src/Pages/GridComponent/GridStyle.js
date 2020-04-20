@@ -34,15 +34,16 @@ export const ImageWrapper = styled.div`
     /* &:hover {
         background: rgba(0, 0, 0, 0.1);      
         /* opacity : 0.1; */
-    } */
+    
 `;
 
 export const ViewButtonWrapper = styled.div`
     width : 210px;
-    height:98%;
+    height:100%;
     position : absolute;
     top : 0;
     background: rgba(0, 0, 0, 0.5);  
+    display : ${props => props.active ? 'block' : 'none'};
 `;
 
 export const ContentWrapper = styled.div`

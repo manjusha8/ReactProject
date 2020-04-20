@@ -21,11 +21,12 @@ export const ImageWrapper = styled.div`
 `;
 
 export const ViewButtonWrapper = styled.div`
-    width : 200px;
+    width : 190px;
     height:100%;
     position : absolute;
     top : 0;
-    background: rgba(0, 0, 0, 0.5);  
+    background: rgba(0, 0, 0, 0.5); 
+    display : ${props => props.active ? 'block' : 'none'};
 `;
 
 export const ContentWrapper = styled.div`

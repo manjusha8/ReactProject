@@ -167,7 +167,8 @@ export const DirectionsContent = styled.div`
 export const Box = styled.div`
     /* border : 1px solid black; */
     /* background-color: #f8f8f8; */
-    width : 35px;
+    /* width : 35px; */
+    padding : 1px 10px;
     display : inline-block;
     text-align: center;
     line-height: 32px;

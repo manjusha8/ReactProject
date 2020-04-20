@@ -1,19 +1,19 @@
 import React , {Component} from 'react';
 import {Wrapper , ViewButtonWrapper , Button} from './ViewStyle';
 
-class ViewButton extends Component {
+function ViewButton(props){
 
 
-    render()
-    {
+    
         return(
             <Wrapper>
                 <ViewButtonWrapper>
-                    <Button>VIEW RECIPE</Button>
+                    {/* <Button onClick = {() => props.clicked(props.data)}>VIEW RECIPE</Button> */}
+                    <Button onClick = {props.clicked}>VIEW RECIPE</Button>
                 </ViewButtonWrapper>
             </Wrapper>
         );
-    }
+
 }
 
 export default ViewButton;

@@ -21,13 +21,13 @@ function App() {
       
       <div >
         <HeaderComponent />
-        {/* <Switch>
+        <Switch>
             <Route path = "/" exact component = {ChangeBannerItem}/>
             <Route path = "/viewrecipe" exact component ={CheckOutSummary}/>
-        </Switch> */}
+        </Switch>
         {/* <RouterComponent/> */}
-        <ChangeBannerItem />
-        <MainContent/>
+        {/* <ChangeBannerItem /> */}
+        {/* <MainContent/> */}
         {/* <CheckOut/> */}
       </div>
 

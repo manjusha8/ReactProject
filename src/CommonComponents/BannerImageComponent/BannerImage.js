@@ -9,9 +9,9 @@ import { withRouter } from 'react-router-dom';
 
 function BannerImage(props) {
 
-    const onNavigateHandler = (props) =>
+    const onNavigateHandler = () =>
     {
-        this.props.history.push("/viewrecipes")
+        props.history.push("/viewrecipe")
     }
 
         return(
@@ -25,7 +25,7 @@ function BannerImage(props) {
                 <BannerContent>
                     <RecipieBtn>{props.selectedBannerItem.title}</RecipieBtn>
                     <Text>{props.selectedBannerItem.recipe}</Text>
-                    <ViewRecipieBtn><Button onClick={() => this.onNavigateHandler.bind(this)}>VIEW RECIPIE</Button></ViewRecipieBtn>
+                    <ViewRecipieBtn><Button onClick={onNavigateHandler}>VIEW RECIPIE</Button></ViewRecipieBtn>
                     <Icons>
                     <FaUtensils color = {'white'}/> <IconText>${props.selectedBannerItem.servings} servings</IconText>
                     <FaClock color = {'white'}/><IconText>{props.selectedBannerItem.prepTime}</IconText>
@@ -40,4 +40,4 @@ function BannerImage(props) {
 
 }
 
-export default BannerImage;
+export default withRouter(BannerImage);

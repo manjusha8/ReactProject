@@ -6,7 +6,12 @@ import {Wrapper, CardWrapper , ImageWrapper , ViewButtonWrapper, ContentWrapper 
 
 function ListCard (props){
 
-    const [isShown, setIsShown] = useState(false);
+    const [isShown, setIsShown] = useState(null);
+
+    function clickHandler (id)
+    {
+        setIsShown(id);
+    }
 
 
 return(
@@ -16,11 +21,11 @@ return(
         {props.value.map ( value => (
         <CardWrapper>
 
-            <ImageWrapper>
-                <img src = {value.imgUrl} onMouseOver={() => setIsShown(true)} onMouseLeave={() => setIsShown(false)} style = {{width : '100%' , height :'100%'}}/>
-                {isShown ? 
-                    <ViewButtonWrapper ><ViewButton /> </ViewButtonWrapper>
-                 : null}
+            <ImageWrapper onMouseOver={() => clickHandler(value.id)}>
+                <img src = {value.imgUrl}  style = {{width : '100%' , height :'100%'}}/>
+                 
+                <ViewButtonWrapper active= {value.id === isShown} ><ViewButton /> </ViewButtonWrapper>
+                
             </ImageWrapper>
             <ContentWrapper>
                 <DescriptionWrapper>
