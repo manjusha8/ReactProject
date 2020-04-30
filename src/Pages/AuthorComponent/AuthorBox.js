@@ -11,8 +11,8 @@ function AuthorBox(props){
         <Wrapper>
             <Author>
                 <AuthorName>
-                    <Type>Author</Type>
-                    <Name>{props.author[0].author}</Name>
+                    <Type>AUTHOR</Type>
+                    <Name>SANDRA FORTIN</Name>
                 </AuthorName>
                 <AuthorPic>
                     <img src={author} alt = "author" style = {{borderRadius : '50%' , width : '60px'}}/>

@@ -5,6 +5,7 @@ export const Wrapper = styled.div`
     max-width : 960px;
     margin : 0 auto;
     padding: 0;
+    width : 700px;
 `;
 
 export const Folded = styled.div`
@@ -21,7 +22,7 @@ export const Folded = styled.div`
 `;
 
 export const Header = styled.div`
-    padding: 15px 35px;
+    padding: 15px 15px;
     background: #f8f8f8;`;
 
 export const Title = styled.h2`
@@ -45,12 +46,13 @@ export const Reviews = styled.div`
 
 export const ImageWrapper = styled.div`
     width : 100%;
+    height : 400px
 `;
 
 
 export const InfoWrapper = styled.div`
     background-color: #f8f8f8;
-    padding: 20px 23px 20px 35px;
+    padding: 20px 15px 20px 20px;
     display : flex;
     justify-content : space-between;
     margin-top: -5px;
@@ -59,7 +61,7 @@ export const InfoWrapper = styled.div`
 export const Infomartion = styled.div`
     display : inline-block;
     border-right : 1px solid #d8d8d8;
-    padding : 0 21px;
+    padding : 0 10px;
 `;
 
 export const Heading = styled.div`
@@ -75,10 +77,7 @@ export const LeftDiv = styled.div`
 `;
 
 export const RightButton = styled.div`
-    /* float : right;
-    content : "";
-    clear: both; */
-    /* overflow : hidden; */
+    
 `;
 
 export const Print = styled.button`
@@ -134,12 +133,11 @@ export const Lists = styled.li`
 `;
 
 export const CheckBox = styled.input`
-    /* &{CheckBox}:checked { */
-        /* background-color : ${props => props.checked === true ? "#8DC63F" : null}; */
-        color : white;
+        background-color : ${props => props.checked === true ? "#8DC63F" : null}; 
+        color : ${props => props.checked === true ? "white" : null};
         background-color : #8dc63f;
 
-    /* } */
+    
 
 `;
 

@@ -9,14 +9,14 @@ import {
   Content,
   Ratings,
   Time,
-} from "./GridStyle";
+} from "../GridComponent/GridStyle";
 import StarComponent from "../StarComponent/StarComponent";
 import ViewButton from "../ViewRecipeComponent/ViewButton";
 import { FaClock } from "react-icons/fa";
 import {withRouter} from 'react-router-dom';
 import NotAvailable from "../NothingFound/NotAvailable";
 
-function GridCard(props) {
+function SearchValue(props) {
 
   const [isShown, setIsShown] = useState(null);
 
@@ -35,21 +35,11 @@ function GridCard(props) {
     console.log("navigateToRecipe",data);
     
   }
-//  {props.value.map((value, index) =>  {
-//    {console.log("inside props:",props.input)}
-//   if(props.input!== "" && value.recipe.toLocaleLowerCase().includes(props.input.toLocaleLowerCase())=== false)
-//   {
-//     return null
-//     // if(value.recipe.toLocaleLowerCase().includes(props.input.toLocaleLowerCase()))
-//     // {
-//     //   return (<div><NotAvailable/></div>)
-//     // }
-//   }
-  // else{
-  return (
+
+  return props.value!== null ? (
     <Wrapper>
       {props.value.map((value, index) => (
-        
+         
         <CardWrapper>
           
           <ImageWrapper
@@ -82,12 +72,9 @@ function GridCard(props) {
           
         </CardWrapper>
         
-       ))} 
+      ))}
     </Wrapper>
     
-  );
-//}
-          // ))}
-
+  ) : <NotAvailable/> ;
 }
-export default withRouter(GridCard);
+export default withRouter(SearchValue);

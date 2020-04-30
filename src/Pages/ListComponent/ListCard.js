@@ -3,6 +3,7 @@ import StarComponent from '../StarComponent/StarComponent';
 import {FaClock , FaUtensils , FaUser} from 'react-icons/fa';
 import ViewButton from '../ViewRecipeComponent/ViewButton';
 import {Wrapper, CardWrapper , ImageWrapper , ViewButtonWrapper, ContentWrapper , DescriptionWrapper , Title , Description , FooterContent , Ratings , Icons, PrepTime,User, Utensils, IconText } from './ListStyle';
+import {withRouter} from 'react-router-dom';
 
 function ListCard (props){
 
@@ -12,6 +13,17 @@ function ListCard (props){
     {
         setIsShown(id);
     }
+
+    const navigateToRecipe= (data) =>{
+        props.history.push({
+          pathname : "/viewrecipe",
+          state: {
+            data: data
+          }
+        });
+        console.log("navigateToRecipe",data);
+        
+      }
 
 
 return(
@@ -24,7 +36,7 @@ return(
             <ImageWrapper onMouseOver={() => clickHandler(value.id)}>
                 <img src = {value.imgUrl}  style = {{width : '100%' , height :'100%'}}/>
                  
-                <ViewButtonWrapper active= {value.id === isShown} ><ViewButton /> </ViewButtonWrapper>
+                <ViewButtonWrapper active= {value.id === isShown} ><ViewButton clicked = {() => navigateToRecipe(value)}/> </ViewButtonWrapper>
                 
             </ImageWrapper>
             <ContentWrapper>
@@ -50,4 +62,4 @@ return(
     );
     
 };
-export default ListCard;
+export default withRouter(ListCard);

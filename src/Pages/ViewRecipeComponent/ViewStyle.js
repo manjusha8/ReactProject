@@ -19,6 +19,7 @@ export const Button = styled.button`
     padding : 20px;
     color : white;
     background: rgba(0, 0, 0, 0.5);  
+    outline : none;
 
 
 `;

@@ -47,12 +47,18 @@ export const ListButton = styled.button`
     background-color : ${props => props.state ? '#8dc63f' : null};
     border : none ;
     padding : 12px 15px;
+    border-radius : 5px;
+    width : 100px;
+    outline : none;
 `;
 
 export const GridButton = styled.button`
     background-color : ${props => props.state ? '#8dc63f' : null};
     border : none;
     padding : 12px 15px;
+    border-radius : 5px;
+    width : 100px;
+    outline : none;
 `;
 
 export const BreakThrough = styled.hr`

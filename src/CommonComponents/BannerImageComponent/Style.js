@@ -75,6 +75,7 @@ export const Text = styled.div`
 `;
 
 export const Button = styled.div`
+    outline : none;
 `;
 
 export const ViewRecipieBtn = styled.button`

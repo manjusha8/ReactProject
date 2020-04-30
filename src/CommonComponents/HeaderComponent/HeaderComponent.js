@@ -6,13 +6,12 @@ function HeaderComponent() {
     // ['home','Demo','Recipes','Pages','Shop','Submit Recipe']
     const [names, setNames] = useState( 
         [
-            {header : 'home' , url : ('/')},
+            {header : 'home' , url : ('/home')},
             {header : 'Demo' , url : ('/demo')},
             {header : 'Recipes' , url : ('/viewrecipe')},
             {header : 'Pages' , url : ('/pages')},
             {header : 'Shop' , url : ('/shop')},
             {header : 'Submit Recipe' , url : ('/submitrecipe')}
-
         ]
         );
     return (

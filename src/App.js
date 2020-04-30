@@ -12,26 +12,24 @@ import ChangeBannerItem from './CommonComponents/ChangeBannerComponent/ChangeBan
 // import '../node_modules/@fortawesome/react-fontawesome';
 import {Route,Switch} from 'react-router-dom';
 import CheckOutSummary from './Pages/CheckOutComponent/CheckOutSummary';
+import SignUp from './Pages/UserAuthentication/SignUp';
+import UserForms from './Pages/UserAuthentication/UserForms';
 
 
 
-function App() {
+function App(props) {
   return (
-    <div className="App">
       
       <div >
-        <HeaderComponent />
+        {/* <HeaderComponent /> */}
         <Switch>
-            <Route path = "/" exact component = {ChangeBannerItem}/>
-            <Route path = "/viewrecipe" exact component ={CheckOutSummary}/>
+            <Route path= '/' exact component= {UserForms}/>
+            <Route path = "/home" exact component = {ChangeBannerItem}/>
+            <Route path = "/viewrecipe" exact component ={CheckOutSummary}  />
         </Switch>
-        {/* <RouterComponent/> */}
-        {/* <ChangeBannerItem /> */}
-        {/* <MainContent/> */}
-        {/* <CheckOut/> */}
+        
       </div>
 
-    </div>
   );
 }
 
