@@ -8,7 +8,6 @@ export const Wrapper= styled.div`
 export const MainContent= styled.div`
     display: flex;
     justify-content: space-between;
-    /* margin-top: 40px; */
     max-width: 960px;
     margin: 40px auto;
 `;

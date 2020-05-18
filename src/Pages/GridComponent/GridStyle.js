@@ -7,15 +7,6 @@ export const Wrapper = styled.div`
     flex-wrap : wrap;
     height : 100%;
 
-    /* display: grid;
-    overflow: hidden;
-    grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: 1fr;
-    grid-column-gap: 5px;
-    grid-row-gap: 5px;
-    /* max-width: 500px; */
-    /* max-width : 960px;
-    margin : 0 auto; */ 
 `;
 
 export const CardWrapper = styled.div`
@@ -25,15 +16,9 @@ export const CardWrapper = styled.div`
 `;
 
 export const ImageWrapper = styled.div`
-    /* width : 225px; */
-    /* position : fixed; */
+    
     height: 225px;
-    /* background: rgba(0, 151, 19, 0.1);   */
     position: relative;    
-
-    /* &:hover {
-        background: rgba(0, 0, 0, 0.1);      
-        /* opacity : 0.1; */
     
 `;
 
@@ -79,9 +64,5 @@ export const Time = styled.div`
 
 `;
 
-// export const TimeValue = styled.span`
-//      padding-left : -3px 0  0 5px;
-
-// `;
 
 

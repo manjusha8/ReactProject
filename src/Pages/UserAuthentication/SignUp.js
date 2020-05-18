@@ -269,19 +269,7 @@ showHideConfirmPassword= ()=> {
                 Login
               </LoginButton>
             </div>
-            {/* <Input type="submit" value="submit" /> */}
           </Forms>
-          {/* <div>
-            <SignUpButton
-              onClick={this.signUpHandler}
-              clicked={this.state.signUp}
-            >
-              Sign Up
-            </SignUpButton>
-            <LoginButton onClick={this.loginHandler} clicked={this.state.login}>
-              Login
-            </LoginButton>
-          </div> */}
         </RightWrapper>
       </Wrapper>
     );

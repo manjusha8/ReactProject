@@ -28,9 +28,9 @@ export const ShopRight= styled.div`
 `;
 
 export const Button= styled.button`
-    background-color: #8DC63F;
+    background-color: ${props=> props.theme.backgroundColor};
     color: white;
-    font-size: 14px;
+    font-size: ${props=> props.theme.fontSize};
     font-weight: bold;
     padding: 10px 0;
     width: 70px;

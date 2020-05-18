@@ -11,7 +11,6 @@ export const Wrapper = styled.div`
 export const Folded = styled.div`
     content: "";
     width : 500px;
-    /* border : 3px solid black; */
     position: absolute;
     top: 0%;
     right: 0%;
@@ -81,7 +80,7 @@ export const RightButton = styled.div`
 `;
 
 export const Print = styled.button`
-    background-color : #8dc63f;
+    background-color : ${props=> props.theme.backgroundColor};
     color : white;
     text-align:center;
     font-size: 12px;
@@ -133,9 +132,9 @@ export const Lists = styled.li`
 `;
 
 export const CheckBox = styled.input`
-        background-color : ${props => props.checked === true ? "#8DC63F" : null}; 
-        color : ${props => props.checked === true ? "white" : null};
-        background-color : #8dc63f;
+    background-color : ${props => props.checked === true ? "#8DC63F" : null}; 
+    color : ${props => props.checked === true ? "white" : null};
+    background-color : #8dc63f;
 
     
 
@@ -163,9 +162,7 @@ export const DirectionsContent = styled.div`
 `;
 
 export const Box = styled.div`
-    /* border : 1px solid black; */
-    /* background-color: #f8f8f8; */
-    /* width : 35px; */
+    
     padding : 1px 10px;
     display : inline-block;
     text-align: center;

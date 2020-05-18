@@ -123,13 +123,13 @@ class Login extends Component {
               {/* {this.state.passwordError ? <Error>{this.state.passwordError}</Error> : null} */}
             </div>
             <div>
-              <SignUpButton type= " submit"
+              <SignUpButton 
                 onClick={this.signUpHandler}
                 clicked={this.state.signUp}
               >
                 Sign Up
               </SignUpButton>
-              <LoginButton
+              <LoginButton type= " submit"
                 onClick={this.loginHandler}
                 clicked={this.state.login}
               >
@@ -137,19 +137,7 @@ class Login extends Component {
               </LoginButton>
             </div>
           </Forms>
-          {/* <div>
-                <SignUpButton
-              onClick={this.signUpHandler}
-              clicked={this.state.signUp}
-            >
-              Sign Up
-            </SignUpButton>
-            <LoginButton onClick={this.loginHandler} clicked={this.state.login}>
-              Login
-            </LoginButton>
-
-                </div>
-                 */}
+          
         </RightWrapper>
       </Wrapper>
     );

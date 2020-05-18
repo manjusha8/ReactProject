@@ -2,7 +2,7 @@ import React from 'react';
 
 import './App.css';
 import ChangeBannerItem from './CommonComponents/ChangeBannerComponent/ChangeBannerItem';
-import {Route,Switch} from 'react-router-dom';
+import {Route,Switch, Redirect} from 'react-router-dom';
 import CheckOutSummary from './Pages/CheckOutComponent/CheckOutSummary';
 import UserForms from './Pages/UserAuthentication/UserForms';
 import Shop from './Pages/ShopComponent/Shop';
@@ -17,10 +17,16 @@ import Logout from './Pages/LogoutComponent/Logout';
 
 function App(props) {
 
+  const theme= {
+    backgroundColor: '#8DC63F',
+    color: 'white',
+    fontSize: '14px',
+    primaryColor: '#a0a0a0'
+  }
   
   return (
       <div >
-        {/* <ThemeProvider theme= {theme} primaryColor= {'red'}> */}
+        <ThemeProvider theme= {theme} primaryColor= {'red'}>
         <Switch>
             <Route path= '/shop' exact component= {Shop}/>
             <Route path= '/' exact component= {SignUp}/>
@@ -31,7 +37,7 @@ function App(props) {
             <Route path= '/checkoutpage' exact component= {CheckOutPage}/>
             <Route component={NoPageFound} />
         </Switch>
-        {/* </ThemeProvider> */}
+        </ThemeProvider>
       </div>
 
   );

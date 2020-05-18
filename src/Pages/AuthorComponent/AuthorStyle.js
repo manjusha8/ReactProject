@@ -6,9 +6,8 @@ export const Wrapper = styled.div`
 `;
 
 export const Author = styled.div`
-
-display : flex;
-justify-content : space-around;
+    display : flex;
+    justify-content : space-around;
 `;
 
 export const AuthorName = styled.div`
@@ -24,7 +23,7 @@ export const Type = styled.div`
     font-size: 13px;
     font-weight: 600;
     text-transform: uppercase;
-    color: #8dc63f;
+    color: ${props=> props.theme.backgroundColor};
 `;
 
 export const Name = styled.div`
@@ -34,7 +33,7 @@ export const Name = styled.div`
 `;
 
 export const Email = styled.div`
-    color: #a0a0a0;
+    color: ${props=> props.theme.primaryColor};
     margin: 5px 0 0;
     cursor: pointer;
 `;
@@ -42,5 +41,5 @@ export const Email = styled.div`
 export const About = styled.div`
     margin: 10px 0 0;
     line-height: 24px;
-    color: #a0a0a0;
+    color: ${props=> props.theme.primaryColor};
 `;

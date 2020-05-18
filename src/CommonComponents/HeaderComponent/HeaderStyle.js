@@ -31,7 +31,7 @@ export const BannerImage = styled.div`
     padding-bottom: ${props=> props.active ? "30px" : "0"};
 
     &:hover {
-        border-bottom: 10px solid #8DC63F;
+        border-bottom: 10px solid ${props=> props.theme.backgroundColor};
         padding-bottom: 30px;
         
       }

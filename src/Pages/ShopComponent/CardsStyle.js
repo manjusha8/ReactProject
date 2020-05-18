@@ -16,12 +16,11 @@ export const Wrapper= styled.div`
 
 export const ImageWrapper= styled.div`
     height: 200px;
-    /* width: 225px; */
     position: relative;
 `;
 
 export const CartButton= styled.div`
-    background-color: #8dc63f;
+    background-color: ${props=> props.theme.backgroundColor};
     position: absolute;
     bottom: 0;
     right: 0;
@@ -39,8 +38,7 @@ export const ContentWrapper= styled.div`
     padding: 16px;
     text-align: center;
     background-color: #f8f8f8;
-    /* height: 220px; */
-    /* width: 225px; */
+    
 `;
 
 export const Category= styled.div`

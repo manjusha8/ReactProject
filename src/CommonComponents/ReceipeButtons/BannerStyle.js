@@ -16,7 +16,7 @@ export const Recipie = styled.div`
     align-items: center;
     justify-content: center;
     &:hover {
-        background-color:#8DC63F;
+        background-color:${props=> props.theme.backgroundColor};
     }
 `;
 
@@ -26,6 +26,6 @@ export const RecipieText = styled.p`
     color:${props => props.active ? 'white' : 'grey' };
     font-weight:bold;
     ${Recipie}:hover & {
-        color: white;
+        color: ${props=> props.theme.color};
       }
 `;

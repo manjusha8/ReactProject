@@ -17,8 +17,7 @@ export const Cart = styled.div`
 
 export const BreakThrough = styled.hr`
   background-color: #606060;
-  /* width: 180px; */
-  /* display: inline-block;  */
+  
 `;
 
 export const CartWrapper = styled.div`
@@ -82,8 +81,8 @@ export const ViewCart = styled.button`
 `;
 
 export const CheckOut = styled.button`
-    background-color: #8dc63f;
-    color: white;
+    background-color: ${props=> props.theme.backgroundColor};
+    color: ${props=> props.theme.color};
     padding: 10px 14px;
     width: 90%;
     font-weight: 700;

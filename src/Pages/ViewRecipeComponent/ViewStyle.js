@@ -1,9 +1,6 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-     /* width : 225px;
-     height:30%;
-     background: rgba(0, 0, 0, 0.1) */
      text-align : center;
 `;
 
@@ -15,9 +12,10 @@ export const ViewButtonWrapper = styled.div`
 `;
 
 export const Button = styled.button`
-    border : none;
+    /* border : 1px solid ${props=> props.theme.color}; */
+    border: none;
     padding : 20px;
-    color : white;
+    color : ${props=> props.theme.color};
     background: rgba(0, 0, 0, 0.5);  
     outline : none;
 
