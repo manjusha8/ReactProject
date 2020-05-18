@@ -1,33 +1,37 @@
 import React from 'react';
-import logo from './logo.svg';
+
 import './App.css';
-import HeaderComponent from './CommonComponents/HeaderComponent/HeaderComponent';
-import  BannerImage from './CommonComponents/BannerImageComponent/BannerImage';
-import BannerButtons from './CommonComponents/ReceipeButtons/BannerButtons';
-import MainContent from './Pages/MainComponent/MainContent';
-import CheckOut from './Pages/CheckOutComponent/CheckOut'
-import StarComponent from './Pages/StarComponent/StarComponent';
 import ChangeBannerItem from './CommonComponents/ChangeBannerComponent/ChangeBannerItem';
-// import '../node_modules/@fortawesome/fontawesome-free/js/all';
-// import '../node_modules/@fortawesome/react-fontawesome';
 import {Route,Switch} from 'react-router-dom';
 import CheckOutSummary from './Pages/CheckOutComponent/CheckOutSummary';
-import SignUp from './Pages/UserAuthentication/SignUp';
 import UserForms from './Pages/UserAuthentication/UserForms';
-
+import Shop from './Pages/ShopComponent/Shop';
+import NoPageFound from './Pages/NoPageFoundComponent/NoPageFound';
+import {ThemeProvider} from 'styled-components';
+import CheckOutPage from './Pages/ShopComponent/CheckOutPage';
+import Login from './Pages/UserAuthentication/Login';
+import SignUp from './Pages/UserAuthentication/SignUp';
+import Logout from './Pages/LogoutComponent/Logout';
+// import theme from './'
 
 
 function App(props) {
+
+  
   return (
-      
       <div >
-        {/* <HeaderComponent /> */}
+        {/* <ThemeProvider theme= {theme} primaryColor= {'red'}> */}
         <Switch>
-            <Route path= '/' exact component= {UserForms}/>
+            <Route path= '/shop' exact component= {Shop}/>
+            <Route path= '/' exact component= {SignUp}/>
+            <Route path= '/login' exact component= {Login}/>
             <Route path = "/home" exact component = {ChangeBannerItem}/>
-            <Route path = "/viewrecipe" exact component ={CheckOutSummary}  />
+            <Route path = "/viewrecipe" exact component ={CheckOutSummary} />
+            <Route path = "/logout" exact component = {Logout}/>
+            <Route path= '/checkoutpage' exact component= {CheckOutPage}/>
+            <Route component={NoPageFound} />
         </Switch>
-        
+        {/* </ThemeProvider> */}
       </div>
 
   );

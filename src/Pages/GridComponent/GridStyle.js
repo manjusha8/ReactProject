@@ -27,9 +27,9 @@ export const CardWrapper = styled.div`
 export const ImageWrapper = styled.div`
     /* width : 225px; */
     /* position : fixed; */
-    height:225px;
+    height: 225px;
     /* background: rgba(0, 151, 19, 0.1);   */
-    position : relative;    
+    position: relative;    
 
     /* &:hover {
         background: rgba(0, 0, 0, 0.1);      

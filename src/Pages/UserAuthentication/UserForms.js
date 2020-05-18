@@ -10,7 +10,7 @@ import {
 import SignUp from "./SignUp";
 import Login from "./Login";
 import formpage from "../../assests/images/formpage.jpeg";
-
+import {withRouter} from 'react-router-dom';
 class UserForms extends Component {
   state = {
     signUp: true,
@@ -20,17 +20,19 @@ class UserForms extends Component {
   };
 
   loginHandler = () => {
-    this.setState({
-      login: true,
-      signUp: false,
-    });
+    // this.setState({
+    //   login: true,
+    //   signUp: false,
+    // });
+    this.props.history.push("/login")
   };
 
   signUpHandler = () => {
-    this.setState({
-      login: false,
-      signUp: true,
-    });
+    // this.setState({
+    //   login: false,
+    //   signUp: true,
+    // });
+    this.props.history.push("/")
   };
 
   
@@ -43,7 +45,7 @@ class UserForms extends Component {
           </ImageWrapper>
         </LeftWrapper>
         <RightWrapper>
-          {this.state.signUp && this.state.email=== null ? (
+          {/* {this.state.signUp && this.state.email=== null ? (
             <div>
               <SignUp/>
             </div>
@@ -65,6 +67,19 @@ class UserForms extends Component {
             <LoginButton onClick={this.loginHandler} clicked={this.state.login}>
               ALREADY HAVE AN ACCOUNT
             </LoginButton>
+          </div> */}
+
+          <SignUp/>
+          <div>
+            <SignUpButton
+              onClick={this.signUpHandler}
+              clicked={this.state.signUp}
+            >
+              Sign Up
+            </SignUpButton>
+            <LoginButton onClick={this.loginHandler} clicked={this.state.login}>
+              Login
+            </LoginButton>
           </div>
         </RightWrapper>
       </Wrapper>
@@ -72,4 +87,4 @@ class UserForms extends Component {
   }
 }
 
-export default UserForms;
+export default withRouter(UserForms);

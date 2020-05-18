@@ -6,18 +6,19 @@ import SearchBox from '../SearchComponent/SearchBox';
 import AuthorBox from '../AuthorComponent/AuthorBox';
 import { MainWrapper , LeftWrapper ,RightWrapper,AuthorWrapper} from './SummaryStyle';
 import HeaderComponent from '../../CommonComponents/HeaderComponent/HeaderComponent';
+import NoPageFound from '../NoPageFoundComponent/NoPageFound';
 
 
 class CheckOutSummary extends Component
 {
-    state = {
+    state= {
         data: null
       };
     
       componentDidMount() {
-        let result = this.props.location.state;
-        if (result === null || result === undefined || result === '') {
-          this.props.history.push('/home');
+        let result= this.props.location.state;
+        if (result=== null || result=== undefined || result=== '') {
+          this.props.history.push('/gs');
         } else {
           this.setState({
             data: result.data

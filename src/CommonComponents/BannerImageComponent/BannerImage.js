@@ -1,10 +1,7 @@
 import React, { Component} from 'react';
-// import sliderA_01 from '../../images/sliderA_01.jpg';
 import {Wrapper,BannerOverlay,Image ,Button,  BannerWrapper,BannerContent,IconText,Icons,RecipieBtn,ViewRecipieBtn,Text} from './Style'
 import {FaClock ,FaUser ,FaUtensils } from 'react-icons/fa';
-// import {browseHistory} from 'react-router';
-// import createHistory from 'history/createBrowserHistory'
-// import { Router } from 'react-router-dom';
+
 import { withRouter } from 'react-router-dom';
 
 function BannerImage(props) {

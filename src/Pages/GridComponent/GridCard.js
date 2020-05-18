@@ -35,19 +35,10 @@ function GridCard(props) {
     console.log("navigateToRecipe",data);
     
   }
-//  {props.value.map((value, index) =>  {
-//    {console.log("inside props:",props.input)}
-//   if(props.input!== "" && value.recipe.toLocaleLowerCase().includes(props.input.toLocaleLowerCase())=== false)
-//   {
-//     return null
-//     // if(value.recipe.toLocaleLowerCase().includes(props.input.toLocaleLowerCase()))
-//     // {
-//     //   return (<div><NotAvailable/></div>)
-//     // }
-//   }
-  // else{
+
   return (
     <Wrapper>
+      {/* {console.log("props :",props.value)} */}
       {props.value.map((value, index) => (
         
         <CardWrapper>
@@ -59,7 +50,7 @@ function GridCard(props) {
           >
             <img src={value.imgUrl} style={{ width: "100%", height: "100%" }} />
 
-            {console.log(value.id === isShown)}
+            {/* {console.log(value.id === isShown)} */}
             <ViewButtonWrapper active={value.id === isShown}>
               <ViewButton clicked = {() => navigateToRecipe(value)}/>
             </ViewButtonWrapper>
@@ -86,8 +77,7 @@ function GridCard(props) {
     </Wrapper>
     
   );
-//}
-          // ))}
+
 
 }
 export default withRouter(GridCard);

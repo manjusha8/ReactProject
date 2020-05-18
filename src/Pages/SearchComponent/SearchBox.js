@@ -15,7 +15,7 @@ class SearchBox extends Component {
         return (
             <div style = {{display : 'flex'}}>
                 <div>
-                <InputBox type = "text" placeholder = "Search For Recipes"  onChange={this.props.changeHandler} onKeyPress = {this.props.keyPress}/>
+                <InputBox type = "text" placeholder = "Search For Recipes"  onChange={this.props.changeHandler} onKeyPress = {this.props.keyPress} value= {this.props.inputValue}/>
                 </div>
                 <div style = {{backgroundColor : '#8dc63f' , width : '44px',display : 'inline-block',cursor: 'pointer',height: '44px'}}>
                 <Search><FaSearch color = 'white' padding = '12px'/></Search>

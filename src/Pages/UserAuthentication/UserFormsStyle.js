@@ -3,41 +3,63 @@ import styled from 'styled-components';
 
 
 export const Wrapper= styled.div`
-    max-width: 960px;
-    margin: 50px auto;
+    /* max-width: 960px; */
+    /* margin: 0px auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; */
+    width: 100%;
+    display: flex;
 `;
 
 export const LeftWrapper= styled.div`
+    width: 60%;
+    background-size: cover;
+
 `;
 
 export const RightWrapper= styled.div`
-    margin : 30px;
+    /* margin : 0 30px; */
+    width: 40%;
+    box-sizing: border-box;
+    padding: 20px;
 `;
 
 export const ImageWrapper= styled.div`
-    overflow: hidden;
-    height: 500px;
-    width: 500px;
+    overflow-y: hidden;
+    /* height: 500px;
+    width: 500px; */ 
+    /* height: 700px; */
 `;
 
 export const SignUpButton= styled.button`
-    padding: 10px;
-    margin: 15px;
+    
     display: inline-block;
-    border-radius : 3px;
+    border-radius : 20px;
     background-color: ${props => props.clicked ? '#8dc63f' : null};
     color: ${props => props.clicked ? 'white' : 'black'};
     outline: none;
+    border: none;
+    width: 150px;
+    height: 45px;
+    font-size: 15px;
+    font-weight: 600;
+    margin-top: 20px;
+    cursor: pointer;
 `;
 
 export const LoginButton = styled.button`
-    padding: 10px;
-    margin: 15px;
+    margin: 20px 0 0 50px;
     display: inline-block;
     border-radius : 3px;
     background-color: ${props => props.clicked ? '#8dc63f' : null};
     color: ${props => props.clicked ? 'white' : 'black'};
     outline: none;
+    border: none;
+    border-radius: 20px;
+    width: 150px;
+    height: 45px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+
 `;

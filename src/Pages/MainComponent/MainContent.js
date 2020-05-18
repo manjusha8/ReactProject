@@ -18,7 +18,7 @@ import GridCard from "../GridComponent/GridCard";
 import ListCard from "../ListComponent/ListCard";
 import SearchBox from "../SearchComponent/SearchBox";
 import AuthorBox from "../AuthorComponent/AuthorBox";
-import SearchValue from "../NothingFound/SearchValue";
+import NotAvailable from "../NothingFound/NotAvailable";
 
 class MainContent extends Component {
   state = {
@@ -305,29 +305,41 @@ class MainContent extends Component {
       this.setState({
         input: input
       })
-        console.log("input: ",input)
-        // if(input!== null)
-        // {
-        //   this.state.cards.map(value => {
-        //     if(value.recipe.toLocaleLowerCase().includes(input.toLocaleLowerCase()))
-        //     {
-        //       this.setState({
-        //         cards: value
-        //       })
-        //       console.log("the available card recipes : ",value)
-        //     }
-        //   })
-        
-        // }
-        // else {
-        //   console.log("should display list and grid cards")
-        //   this.setState({
-        //     available : false
-        //   })
-        //   console.log("available list and grid cards:",this.state.available)
-        // }
-      
+      let cards= [...this.state.cards]
+      let temp= []
+      let available= false
+      console.log(" cards in search box: ",cards)
+      console.log("input: ",input)
+
+        this.state.cards.filter(cards=>{
+          if(cards.recipe.toLocaleLowerCase().includes(this.state.input.toLocaleLowerCase()))
+          {
+            // available= false
+            temp.push(cards)
+            console.log("the matched input: ",temp)
+            
+          }
+          // else{
+          //   available= true
+          //   this.setState({
+          //     available: available
+          //   })
+          //   console.log("the availability is: ",available)
+          // }
+        })
+
+        this.setState({
+          available: available,
+          cards: temp
+        })
+        console.log("available: ",this.state.available)
   }
+
+  // fiteredCards= ()=> {
+  //   this.state.cards.filter(cards=>{
+  //     return value.recipe.toLocaleLowerCase().includes(this.state.input.toLocaleLowerCase())
+  //   })
+  // }
 
   
 
@@ -351,19 +363,19 @@ class MainContent extends Component {
                   Grid
                 </GridButton>
               </Buttons>
-
+              {this.state.available ? <NotAvailable/> : 
               
               <Cards>
                 {this.state.list ? <ListCard value={this.state.cards}/> : null}
-                {this.state.grid ? <GridCard value={this.state.cards}   input= {this.state.input} /> : null}
-              </Cards> 
+                {this.state.grid ? <GridCard value={this.state.cards}/> : null}
+              </Cards> }
             
             </CardWrapper>
           </LeftWrapper> 
           
           <RightWrapper>
             <SearchWrapper>
-              <SearchBox keyPress= {this.keyPressHandler} changeHandler= {this.handleInputChange} />
+              <SearchBox changeHandler= {this.handleInputChange} inputValue= {this.state.input}/>
             </SearchWrapper>
             <AuthorWrapper>
               <AuthorBox />
