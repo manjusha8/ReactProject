@@ -1,4 +1,4 @@
-import React, { Component} from 'react';
+import React from 'react';
 import {Wrapper,BannerOverlay,Image ,Button,  BannerWrapper,BannerContent,IconText,Icons,RecipieBtn,ViewRecipieBtn,Text} from './Style'
 import {FaClock ,FaUser ,FaUtensils } from 'react-icons/fa';
 

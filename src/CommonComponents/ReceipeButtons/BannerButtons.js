@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { ReceipeWrapper, Recipie, RecipieText } from "./BannerStyle";
 
 function BannerButtons(props) {

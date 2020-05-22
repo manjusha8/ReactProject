@@ -19,273 +19,38 @@ import ListCard from "../ListComponent/ListCard";
 import SearchBox from "../SearchComponent/SearchBox";
 import AuthorBox from "../AuthorComponent/AuthorBox";
 import NotAvailable from "../NothingFound/NotAvailable";
+import Loader from '../../CommonComponents/LoaderComponent/Loader';
+import axios from 'axios';
+
 
 class MainContent extends Component {
   state = {
-    cards: [
-      {
-        id: "0",
-        imgUrl: require("../../assests/images/recipeThumb-01.jpg"),
-        ratings: 5,
-        servings: 5,
-        prepTime: "30 mins",
-        author: "SANDRA FORTIN",
-        recipe: "Mexican Grilled Corn Recipe",
-        cooking : '2 hours',
-        Calories : '632 Kcal',
-        ingredients : [
-            '2 pounds cubed beef stew meat',
-            '3 tablespoons vegetable oil',
-            '4 cubes beef bouillon, crumbled',
-            '1 large onion, chopped',
-            '1 teaspoon dried rosemary',
-            '1/2 teaspoon ground black pepper',
-            '3 large potatoes, peeled and cubed',
-            '4 carrots, cut into 1 inch pieces',
-            '4 stalks celery, cut into 1 inch pieces'
-        ],
-        directions : [
-            'In a Dutch oven, heat oil over medium heat until hot, but not smoking. Pat the meat dry with paper towels and brown in batches, transferring the meat with a slotted spoon to a bowl as they are done.',
-            'In the fat remaining in the pot, cook the onions until softened, about 5 minutes.',
-            'Return meat to the pot with any juices in the bowl and add the tomatoes with juice, chiles, beer, beef broth, oregano, cumin, and Worcestershire sauce. Season with salt and pepper to taste.',
-            'Bring to a boil and reduce heat. Simmer, partially covered, for 2 1/2 hours or until meat is tender.'
-        ]
-      },
-      {
-        id: "1",
-        imgUrl: require("../../assests/images/recipeThumb-02.jpg"),
-        ratings: 4,
-        servings: 4,
-        prepTime: "1 Hr 30 mins",
-        author: "BY SANDRA FORTIN",
-        recipe: "Chocolate Cake With Green Tea",
-        cooking : '2 hours',
-        Calories : '632 Kcal',
-        ingredients : [
-            '2 pounds cubed beef stew meat',
-            '3 tablespoons vegetable oil',
-            '4 cubes beef bouillon, crumbled',
-            '1 large onion, chopped',
-            '1 teaspoon dried rosemary',
-            '1/2 teaspoon ground black pepper',
-            '3 large potatoes, peeled and cubed',
-            '4 carrots, cut into 1 inch pieces',
-            '4 stalks celery, cut into 1 inch pieces'
-        ],
-        directions : [
-            'In a Dutch oven, heat oil over medium heat until hot, but not smoking. Pat the meat dry with paper towels and brown in batches, transferring the meat with a slotted spoon to a bowl as they are done.',
-            'In the fat remaining in the pot, cook the onions until softened, about 5 minutes.',
-            'Return meat to the pot with any juices in the bowl and add the tomatoes with juice, chiles, beer, beef broth, oregano, cumin, and Worcestershire sauce. Season with salt and pepper to taste.',
-            'Bring to a boil and reduce heat. Simmer, partially covered, for 2 1/2 hours or until meat is tender.'
-        ]
-      },
-      {
-        id: "2",
-        imgUrl: require("../../assests/images/recipeThumb-03.jpg"),
-        ratings: 5,
-        servings: 5,
-        prepTime: "45 mins",
-        author: "BY SANDRA FORTIN",
-        recipe: "Thai Yellow Curry Chicken",
-        cooking : '2 hours',
-        Calories : '632 Kcal',
-        ingredients : [
-            '2 pounds cubed beef stew meat',
-            '3 tablespoons vegetable oil',
-            '4 cubes beef bouillon, crumbled',
-            '1 large onion, chopped',
-            '1 teaspoon dried rosemary',
-            '1/2 teaspoon ground black pepper',
-            '3 large potatoes, peeled and cubed',
-            '4 carrots, cut into 1 inch pieces',
-            '4 stalks celery, cut into 1 inch pieces'
-        ],
-        directions : [
-            'In a Dutch oven, heat oil over medium heat until hot, but not smoking. Pat the meat dry with paper towels and brown in batches, transferring the meat with a slotted spoon to a bowl as they are done.',
-            'In the fat remaining in the pot, cook the onions until softened, about 5 minutes.',
-            'Return meat to the pot with any juices in the bowl and add the tomatoes with juice, chiles, beer, beef broth, oregano, cumin, and Worcestershire sauce. Season with salt and pepper to taste.',
-            'Bring to a boil and reduce heat. Simmer, partially covered, for 2 1/2 hours or until meat is tender.'
-        ]
-      },
-      {
-        id: "3",
-        imgUrl: require("../../assests/images/recipeThumb-04.jpg"),
-        ratings: 4,
-        servings: 4,
-        prepTime: "15 mins",
-        author: "BY SANDRA FORTIN",
-        recipe: "Avocado Melon Salad With Lime Vinaigrette",
-        cooking : '2 hours',
-        Calories : '632 Kcal',
-        ingredients : [
-            '2 pounds cubed beef stew meat',
-            '3 tablespoons vegetable oil',
-            '4 cubes beef bouillon, crumbled',
-            '1 large onion, chopped',
-            '1 teaspoon dried rosemary',
-            '1/2 teaspoon ground black pepper',
-            '3 large potatoes, peeled and cubed',
-            '4 carrots, cut into 1 inch pieces',
-            '4 stalks celery, cut into 1 inch pieces'
-        ],
-        directions : [
-            'In a Dutch oven, heat oil over medium heat until hot, but not smoking. Pat the meat dry with paper towels and brown in batches, transferring the meat with a slotted spoon to a bowl as they are done.',
-            'In the fat remaining in the pot, cook the onions until softened, about 5 minutes.',
-            'Return meat to the pot with any juices in the bowl and add the tomatoes with juice, chiles, beer, beef broth, oregano, cumin, and Worcestershire sauce. Season with salt and pepper to taste.',
-            'Bring to a boil and reduce heat. Simmer, partially covered, for 2 1/2 hours or until meat is tender.'
-        ]
-      },
-      {
-        id: "4",
-        imgUrl: require("../../assests/images/recipeThumb-05.jpg"),
-        ratings: 5,
-        servings: 5,
-        prepTime: "45 mins",
-        author: "BY SANDRA FORTIN",
-        recipe: "Sweet Chilli And Lime Chicken Wings",
-        cooking : '2 hours',
-        Calories : '632 Kcal',
-        ingredients : [
-            '2 pounds cubed beef stew meat',
-            '3 tablespoons vegetable oil',
-            '4 cubes beef bouillon, crumbled',
-            '1 large onion, chopped',
-            '1 teaspoon dried rosemary',
-            '1/2 teaspoon ground black pepper',
-            '3 large potatoes, peeled and cubed',
-            '4 carrots, cut into 1 inch pieces',
-            '4 stalks celery, cut into 1 inch pieces'
-        ],
-        directions : [
-            'In a Dutch oven, heat oil over medium heat until hot, but not smoking. Pat the meat dry with paper towels and brown in batches, transferring the meat with a slotted spoon to a bowl as they are done.',
-            'In the fat remaining in the pot, cook the onions until softened, about 5 minutes.',
-            'Return meat to the pot with any juices in the bowl and add the tomatoes with juice, chiles, beer, beef broth, oregano, cumin, and Worcestershire sauce. Season with salt and pepper to taste.',
-            'Bring to a boil and reduce heat. Simmer, partially covered, for 2 1/2 hours or until meat is tender.'
-        ]
-      },
-      {
-        id: "5",
-        imgUrl: require("../../assests/images/recipeThumb-06.jpg"),
-        ratings: 4,
-        servings: 4,
-        prepTime: "30 mins",
-        author: "BY SANDRA FORTIN",
-        recipe: "Pollo Borracho With Homemade Tortillas",
-        cooking : '2 hours',
-        Calories : '632 Kcal',
-        ingredients : [
-            '2 pounds cubed beef stew meat',
-            '3 tablespoons vegetable oil',
-            '4 cubes beef bouillon, crumbled',
-            '1 large onion, chopped',
-            '1 teaspoon dried rosemary',
-            '1/2 teaspoon ground black pepper',
-            '3 large potatoes, peeled and cubed',
-            '4 carrots, cut into 1 inch pieces',
-            '4 stalks celery, cut into 1 inch pieces'
-        ],
-        directions : [
-            'In a Dutch oven, heat oil over medium heat until hot, but not smoking. Pat the meat dry with paper towels and brown in batches, transferring the meat with a slotted spoon to a bowl as they are done.',
-            'In the fat remaining in the pot, cook the onions until softened, about 5 minutes.',
-            'Return meat to the pot with any juices in the bowl and add the tomatoes with juice, chiles, beer, beef broth, oregano, cumin, and Worcestershire sauce. Season with salt and pepper to taste.',
-            'Bring to a boil and reduce heat. Simmer, partially covered, for 2 1/2 hours or until meat is tender.'
-        ]
-      },
-      {
-        id: "6",
-        imgUrl: require("../../assests/images/recipeThumb-07.jpg"),
-        ratings: 5,
-        servings: 5,
-        prepTime: "1 Hr 20 mins",
-        author: "BY SANDRA FORTIN",
-        recipe: "Roast Chicken With Lemon Gravy",
-        cooking : '2 hours',
-        Calories : '632 Kcal',
-        ingredients : [
-            '2 pounds cubed beef stew meat',
-            '3 tablespoons vegetable oil',
-            '4 cubes beef bouillon, crumbled',
-            '1 large onion, chopped',
-            '1 teaspoon dried rosemary',
-            '1/2 teaspoon ground black pepper',
-            '3 large potatoes, peeled and cubed',
-            '4 carrots, cut into 1 inch pieces',
-            '4 stalks celery, cut into 1 inch pieces'
-        ],
-        directions : [
-            'In a Dutch oven, heat oil over medium heat until hot, but not smoking. Pat the meat dry with paper towels and brown in batches, transferring the meat with a slotted spoon to a bowl as they are done.',
-            'In the fat remaining in the pot, cook the onions until softened, about 5 minutes.',
-            'Return meat to the pot with any juices in the bowl and add the tomatoes with juice, chiles, beer, beef broth, oregano, cumin, and Worcestershire sauce. Season with salt and pepper to taste.',
-            'Bring to a boil and reduce heat. Simmer, partially covered, for 2 1/2 hours or until meat is tender.'
-        ]
-      },
-      {
-        id: "7",
-        imgUrl: require("../../assests/images/recipeThumb-08.jpg"),
-        ratings: 5,
-        servings: 5,
-        prepTime: "2 Hr 30 mins",
-        author: "BY SANDRA FORTIN",
-        recipe: "Chunky Beef Stew",
-        cooking : '2 hours',
-        Calories : '632 Kcal',
-        ingredients : [
-            '2 pounds cubed beef stew meat',
-            '3 tablespoons vegetable oil',
-            '4 cubes beef bouillon, crumbled',
-            '1 large onion, chopped',
-            '1 teaspoon dried rosemary',
-            '1/2 teaspoon ground black pepper',
-            '3 large potatoes, peeled and cubed',
-            '4 carrots, cut into 1 inch pieces',
-            '4 stalks celery, cut into 1 inch pieces'
-        ],
-        directions : [
-            'In a Dutch oven, heat oil over medium heat until hot, but not smoking. Pat the meat dry with paper towels and brown in batches, transferring the meat with a slotted spoon to a bowl as they are done.',
-            'In the fat remaining in the pot, cook the onions until softened, about 5 minutes.',
-            'Return meat to the pot with any juices in the bowl and add the tomatoes with juice, chiles, beer, beef broth, oregano, cumin, and Worcestershire sauce. Season with salt and pepper to taste.',
-            'Bring to a boil and reduce heat. Simmer, partially covered, for 2 1/2 hours or until meat is tender.'
-        ]
-      },
-      {
-        id: "8",
-        imgUrl: require("../../assests/images/recipeThumb-09.jpg"),
-        ratings: 4,
-        servings: 4,
-        prepTime: "1 Hr 30 mins",
-        author: "BY SANDRA FORTIN",
-        recipe: "Farmhouse Vegetable And Barely Soup",
-        cooking : '2 hours',
-        Calories : '632 Kcal',
-        ingredients : [
-            '2 pounds cubed beef stew meat',
-            '3 tablespoons vegetable oil',
-            '4 cubes beef bouillon, crumbled',
-            '1 large onion, chopped',
-            '1 teaspoon dried rosemary',
-            '1/2 teaspoon ground black pepper',
-            '3 large potatoes, peeled and cubed',
-            '4 carrots, cut into 1 inch pieces',
-            '4 stalks celery, cut into 1 inch pieces'
-        ],
-        directions : [
-            'In a Dutch oven, heat oil over medium heat until hot, but not smoking. Pat the meat dry with paper towels and brown in batches, transferring the meat with a slotted spoon to a bowl as they are done.',
-            'In the fat remaining in the pot, cook the onions until softened, about 5 minutes.',
-            'Return meat to the pot with any juices in the bowl and add the tomatoes with juice, chiles, beer, beef broth, oregano, cumin, and Worcestershire sauce. Season with salt and pepper to taste.',
-            'Bring to a boil and reduce heat. Simmer, partially covered, for 2 1/2 hours or until meat is tender.'
-        ]
-      },
-    ],
+    cards: [],
+    tempCards: [],
     hover: false,
     grid: true,
     list: false,
     input : '',
     available: false,
     input: '',
-    availableCards: []
+    availableCards: [],
+    loading: true
   };
 
   onHover = () => this.setState({ hover: true });
+
+  componentDidMount()
+    {
+        axios.get('https://react-my-recipe-page.firebaseio.com/.json')
+        .then(
+          response => 
+          this.setState({
+            loading: false,
+            cards: response.data
+          })
+        )
+        .catch(err => console.log("no response from mock: ",err))
+    }
 
   listHandler = () =>
     this.setState({
@@ -308,38 +73,35 @@ class MainContent extends Component {
       let cards= [...this.state.cards]
       let temp= []
       let available= false
-      console.log(" cards in search box: ",cards)
-      console.log("input: ",input)
 
-        this.state.cards.filter(cards=>{
-          if(cards.recipe.toLocaleLowerCase().includes(this.state.input.toLocaleLowerCase()))
-          {
-            // available= false
-            temp.push(cards)
-            console.log("the matched input: ",temp)
-            
+      if (input.length === 0) {
+        this.setState({
+          tempCards: []
+        });
+      } else {
+        let cards = [...this.state.cards];
+        cards.filter(card => {
+          if (card.recipe.toLocaleLowerCase().includes(input.toLowerCase())) {
+            available= false
+            temp.push(card);
           }
-          // else{
-          //   available= true
-          //   this.setState({
-          //     available: available
-          //   })
-          //   console.log("the availability is: ",available)
-          // }
-        })
+          else{
+            available= true
+            // this.setState({
+            //   available: available
+            // })
+          }
+        });
+      }
 
         this.setState({
           available: available,
-          cards: temp
+          tempCards: temp
         })
         console.log("available: ",this.state.available)
   }
 
-  // fiteredCards= ()=> {
-  //   this.state.cards.filter(cards=>{
-  //     return value.recipe.toLocaleLowerCase().includes(this.state.input.toLocaleLowerCase())
-  //   })
-  // }
+  
 
   
 
@@ -363,13 +125,15 @@ class MainContent extends Component {
                   Grid
                 </GridButton>
               </Buttons>
-              {this.state.available ? <NotAvailable/> : 
-              
+              {this.state.cards!== null ?
+
+              this.state.available ? <NotAvailable/> : 
               <Cards>
-                {this.state.list ? <ListCard value={this.state.cards}/> : null}
-                {this.state.grid ? <GridCard value={this.state.cards}/> : null}
-              </Cards> }
-            
+                {this.state.list ? <ListCard value={this.state.cards} tempValue= {this.state.tempCards}/> : null}
+                {this.state.grid ? <GridCard value={this.state.cards} tempValue= {this.state.tempCards}/> : null}
+              </Cards> 
+
+              : <Loader/> }
             </CardWrapper>
           </LeftWrapper> 
           

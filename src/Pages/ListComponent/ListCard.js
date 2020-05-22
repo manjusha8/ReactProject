@@ -8,6 +8,20 @@ import {withRouter} from 'react-router-dom';
 function ListCard (props){
 
     const [isShown, setIsShown] = useState(null);
+    const [imgUrl]= useState(
+        [
+          require("../../assests/images/recipeThumb-01.jpg"),
+          require("../../assests/images/recipeThumb-02.jpg"),
+          require("../../assests/images/recipeThumb-03.jpg"),
+          require("../../assests/images/recipeThumb-04.jpg"),
+          require("../../assests/images/recipeThumb-05.jpg"),
+          require("../../assests/images/recipeThumb-06.jpg"),
+          require("../../assests/images/recipeThumb-07.jpg"),
+          require("../../assests/images/recipeThumb-08.jpg"),
+          require("../../assests/images/recipeThumb-09.jpg"),
+        ]
+      )
+    
 
     function clickHandler (id)
     {
@@ -25,16 +39,22 @@ function ListCard (props){
         
       }
 
+    let tempCards = props.tempValue;
+    let value = props.value;
+    if (tempCards.length !== 0) {
+        value = tempCards;
+    }
+
 
 return(
 
     <Wrapper>
 
-        {props.value.map ( value => (
+        {value.map ( value => (
         <CardWrapper>
 
             <ImageWrapper onMouseOver={() => clickHandler(value.id)}>
-                <img src = {value.imgUrl}  style = {{width : '100%' , height :'100%'}}/>
+                <img src = {imgUrl[value.id]}  style = {{width : '100%' , height :'100%'}}/>
                  
                 <ViewButtonWrapper active= {value.id === isShown} ><ViewButton clicked = {() => navigateToRecipe(value)}/> </ViewButtonWrapper>
                 

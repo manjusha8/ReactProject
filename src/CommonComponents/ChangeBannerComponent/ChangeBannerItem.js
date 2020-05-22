@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import BannerImage from "../BannerImageComponent/BannerImage";
 import BannerButtons from "../ReceipeButtons/BannerButtons";
 import MainContent from "../../Pages/MainComponent/MainContent";
-import {WithRouter} from 'react-router-dom';
 import HeaderComponent from "../HeaderComponent/HeaderComponent";
 
 class ChangeBannerItem extends Component {
@@ -163,7 +162,7 @@ class ChangeBannerItem extends Component {
 
     activestate: [true, false, false, false],
   };
-
+  
   clickHandler = (id) => {
     let oldState = [...this.state.activestate];
     const index = oldState.findIndex((oldState) => oldState === true);

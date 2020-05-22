@@ -14,17 +14,25 @@ import HeaderComponent from "../../CommonComponents/HeaderComponent/HeaderCompon
 import SearchBox from "../SearchComponent/SearchBox";
 import CartComponent from './CartComponent';
 import axios from 'axios';
+import Loader from "../../CommonComponents/LoaderComponent/Loader";
 
 class Shop extends Component {
     state= {
         cardsData: null,
-        selectedCard: []
+        selectedCard: [],
+        loading: true
     };
 
     componentDidMount()
     {
         axios.get('http://demo2746324.mockable.io/chow/shop')
-        .then(response => this.setState({cardsData: response.data}))
+        .then(
+          response => 
+          this.setState({
+            loading: false,
+            cardsData: response.data
+          })
+        )
         .catch(err => console.log("no response from mock: ",err))
     }
 
@@ -44,7 +52,7 @@ class Shop extends Component {
     }
 
   render() {
-    return this.state.cardsData!== null ? (
+    return this.state.loading=== false ?  (
       <div>
         <HeaderComponent />
         <HeaderWrapper>
@@ -67,7 +75,7 @@ class Shop extends Component {
           </MainContent>
         </Wrapper>
       </div>
-    ): null;
+    ): <Loader/>;
   }
 }
 

@@ -3,11 +3,9 @@ import { Items , Lists , HeaderDiv ,BannerImage,Link , ListItems, Hover} from '.
 import logo from '../../assests/images/logo.jpg';
 
 function HeaderComponent() {
-    // ['home','Demo','Recipes','Pages','Shop','Submit Recipe']
-    const [names, setNames] = useState( 
+    const [names] = useState( 
         [
             {header : 'home' , url : ('/home'), active: true},
-            {header : 'Demo' , url : ('/demo'), active: false},
             {header : 'Recipes' , url : ('/viewrecipe'), active: false},
             {header : 'Logout' , url : ('/logout'), active: false},
             {header : 'Shop' , url : ('/shop'), active: false},
@@ -21,8 +19,8 @@ function HeaderComponent() {
             </BannerImage>
             <Lists >
                 <Items >
-                    {names.map(names => (
-                    <ListItems active= {names.active}> 
+                    {names.map((names, key) => (
+                    <ListItems key= {key} active= {names.active}> 
                         <Link active= {names.active} href ={names.url}>{names.header}</Link>
                     </ListItems>
                     ))}

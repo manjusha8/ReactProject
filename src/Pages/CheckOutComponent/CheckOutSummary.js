@@ -18,7 +18,7 @@ class CheckOutSummary extends Component
       componentDidMount() {
         let result= this.props.location.state;
         if (result=== null || result=== undefined || result=== '') {
-          this.props.history.push('/gs');
+          this.props.history.push('*');
         } else {
           this.setState({
             data: result.data
