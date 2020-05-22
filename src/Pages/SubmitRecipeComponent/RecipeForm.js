@@ -39,11 +39,14 @@ class RecipeForm extends Component {
           ratings: this.state.ratings,
           calories: this.state.calories
       })
-      axios.post("http://demo2746324.mockable.io/chow/homerecipe", recipes)
+      axios.post("https://react-my-recipe-page.firebaseio.com/.json", recipes)
         .then(response=> {
             console.log("response sent", response)
         })
-        .catch(err => console.log("no response from mock: ",err))
+        .catch(err => 
+          console.log("no response from mock: ",err),
+          this.props.history.push('*')
+          )
 
     console.log("forms submitted: ", recipes)
   }
@@ -80,12 +83,6 @@ class RecipeForm extends Component {
           <TitleInput
             name="servings"
             value={this.state.servings}
-            onChange={this.handleChange}
-          />
-          <Text>Preparation Time</Text>
-          <TitleInput
-            name="preparation"
-            value={this.state.prepTime}
             onChange={this.handleChange}
           />
           <Text>Calories</Text>

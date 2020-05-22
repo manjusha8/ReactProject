@@ -34,7 +34,6 @@ function GridCard(props) {
 
   function clickHandler(id) {
     setIsShown(id);
-    console.log("isShown ", isShown);
   }
 
   const navigateToRecipe= (data) =>{
@@ -44,7 +43,6 @@ function GridCard(props) {
         data: data
       }
     });
-    console.log("navigateToRecipe",data);
     
   }
 

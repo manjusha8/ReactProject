@@ -15,7 +15,6 @@ function CheckOut (props){
 
     }
 
-    
         return(
             <Wrapper>
                 <div>

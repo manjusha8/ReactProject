@@ -33,7 +33,9 @@ class Shop extends Component {
             cardsData: response.data
           })
         )
-        .catch(err => console.log("no response from mock: ",err))
+        .catch(err => 
+          this.props.history.push("*")
+        )
     }
 
     cartHandler= (id)=> {

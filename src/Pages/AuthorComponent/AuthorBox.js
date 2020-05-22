@@ -2,7 +2,7 @@ import React from 'react';
 import {Wrapper,AuthorName,Author,AuthorPic,Name,Type,Email,About} from './AuthorStyle';
 import author from '../../assests/images/author.jpg';
 
-function AuthorBox(props){
+function AuthorBox(){
 
     return (
 

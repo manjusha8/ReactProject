@@ -14,7 +14,6 @@ function BannerImage(props) {
               data: data
             }
           });
-          console.log("navigateToRecipe",data);
     }
 
         return(
