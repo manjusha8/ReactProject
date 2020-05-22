@@ -15,8 +15,7 @@ class CheckOutPage extends Component {
       this.props.history.push("*");
     } 
     else {
-        this.setState
-        ({
+        this.setState({
           data: result.data
         });
       }

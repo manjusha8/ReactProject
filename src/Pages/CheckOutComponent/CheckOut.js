@@ -63,8 +63,8 @@ function CheckOut (props){
                             {props.data.ingredients.map(
                                 (value,key) =>(
                                     <Lists key= {key}> 
-                                        <CheckBox type="checkbox" onChange={() => handleCheck(index)} name="ingredients" checked={checked[index]} />
-                                        <LabelList checked = {checked[index]}> {value} </LabelList>
+                                        <CheckBox type="checkbox" onChange={() => handleCheck(key)} name="ingredients" checked={checked[key]} />
+                                        <LabelList checked = {checked[key]}> {value} </LabelList>
                                     </Lists>
                                 )
                             )}
@@ -78,7 +78,7 @@ function CheckOut (props){
                             {props.data.directions.map(
                                 (value,key) =>(
                                     <div key= {key} style = {{marginBottom : '20px',display : 'flex',alignItems: 'center'}}> 
-                                        <Box>{index+1}</Box>
+                                        <Box>{key+1}</Box>
                                         <DirectionList>{value} </DirectionList>
                                     </div>
                                 )

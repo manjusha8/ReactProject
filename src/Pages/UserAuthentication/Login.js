@@ -32,18 +32,19 @@ class Login extends Component {
         if (users[i].password === this.state.password) {
           loginError = "";
           return true;
-          break;
         } else {
           validUser = true;
+          loginError= "email or password is incorrect"
         }
       } else {
         validUser = true;
+        loginError= "new user please SignUp!! "
       }
     }
 
     if (validUser) {
       this.setState({
-        loginError: "new user please SignUp!! ",
+        loginError: loginError
       });
     }
   };

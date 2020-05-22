@@ -67,7 +67,6 @@ class MainContent extends Component {
         input: input
       })
       let temp= []
-      let available= false
 
       if (input.length === 0) {
         this.setState({
@@ -77,7 +76,6 @@ class MainContent extends Component {
         let cards = [...this.state.cards];
         cards.filter(card=> {
           if (card.recipe.toLocaleLowerCase().includes(input.toLowerCase())) {
-            available= false
             temp.push(card);
           }
         });
@@ -86,7 +84,6 @@ class MainContent extends Component {
         this.setState({
           tempCards: temp
         })
-        console.log("available: ",this.state.available)
   }
 
 

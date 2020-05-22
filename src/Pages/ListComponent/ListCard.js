@@ -50,8 +50,8 @@ return(
 
     <Wrapper>
 
-        {value.map ( value => (
-        <CardWrapper>
+        {value.map ( value, key => (
+        <CardWrapper key= {key}>
 
             <ImageWrapper onMouseOver={() => clickHandler(value.id)}>
                 <img src = {imgUrl[value.id]} alt= "cards" style = {{width : '100%' , height :'100%'}}/>
