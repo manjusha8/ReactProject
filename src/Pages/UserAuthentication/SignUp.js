@@ -93,7 +93,7 @@ class SignUp extends Component {
     });
 
     let confirmPasswordError = "";
-    if (!(this.state.password === this.state.confirmPassword)) {
+    if (this.state.password !== this.state.confirmPassword) {
       confirmPasswordError = "password doesn't match";
 
       if (confirmPasswordError) {
@@ -192,7 +192,7 @@ class SignUp extends Component {
       <Wrapper>
         <LeftWrapper>
           <ImageWrapper>
-            <img src={formpage} alt="image" />
+            <img src={formpage} alt="formpage" />
           </ImageWrapper>
         </LeftWrapper>
         <RightWrapper>

@@ -18,8 +18,6 @@ import GridCard from "../GridComponent/GridCard";
 import ListCard from "../ListComponent/ListCard";
 import SearchBox from "../SearchComponent/SearchBox";
 import AuthorBox from "../AuthorComponent/AuthorBox";
-import NotAvailable from "../NothingFound/NotAvailable";
-import Loader from '../../CommonComponents/LoaderComponent/Loader';
 import axios from 'axios';
 
 
@@ -31,8 +29,6 @@ class MainContent extends Component {
     grid: true,
     list: false,
     input : '',
-    available: false,
-    input: '',
     availableCards: [],
     loading: true
   };
@@ -70,7 +66,6 @@ class MainContent extends Component {
       this.setState({
         input: input
       })
-      let cards= [...this.state.cards]
       let temp= []
       let available= false
 
@@ -80,7 +75,7 @@ class MainContent extends Component {
         });
       } else {
         let cards = [...this.state.cards];
-        cards.filter(card => {
+        cards.filter(card=> {
           if (card.recipe.toLocaleLowerCase().includes(input.toLowerCase())) {
             available= false
             temp.push(card);
@@ -94,9 +89,6 @@ class MainContent extends Component {
         console.log("available: ",this.state.available)
   }
 
-  
-
-  
 
   render() {
     return (
@@ -120,13 +112,12 @@ class MainContent extends Component {
               </Buttons>
               {this.state.cards!== null ?
 
-              this.state.available ? <NotAvailable/> : 
               <Cards>
                 {this.state.list ? <ListCard value={this.state.cards} tempValue= {this.state.tempCards}/> : null}
                 {this.state.grid ? <GridCard value={this.state.cards} tempValue= {this.state.tempCards}/> : null}
               </Cards> 
 
-              : <Loader/> }
+              : null }
             </CardWrapper>
           </LeftWrapper> 
           

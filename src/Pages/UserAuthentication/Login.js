@@ -96,7 +96,7 @@ class Login extends Component {
       <Wrapper>
         <LeftWrapper>
           <ImageWrapper>
-            <img src={formpage} alt="image" />
+            <img src={formpage} alt="formpage" />
           </ImageWrapper>
         </LeftWrapper>
         <RightWrapper>

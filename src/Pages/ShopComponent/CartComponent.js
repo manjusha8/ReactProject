@@ -15,7 +15,6 @@ import {
   SubtotalPrice,
   ViewCart,
   CheckOut,
-  NoItems
 } from "./CartStyle";
 import { withRouter } from "react-router-dom";
 
@@ -54,8 +53,8 @@ class CartComponent extends Component {
         <div style={{width: "230px", padding: "8px 10px 30px 10px"}}>
           {this.props.data !== null ? 
           <div>
-            {this.props.data.map((value, index) => (
-              <CartWrapper>
+            {this.props.data.map((value, key) => (
+              <CartWrapper key= {key}>
                 <ImageBlock>
                   <ul style={{ listStyleType: "none" }}>
                     <ImageWrapper>

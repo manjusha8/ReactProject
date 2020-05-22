@@ -1,9 +1,8 @@
-import React,{useEffect, useState} from 'react';
+import React,{useState} from 'react';
 import StarComponent from '../StarComponent/StarComponent';
-import {Wrapper,Folded,Header,ImageWrapper,Banner,InfoWrapper,Infomartion,Heading,Detail,LeftDiv,Print,RightButton,IngredientsWrapper,Ingredients,IngredientsContent,ListWrapper,Lists,CheckBox,LabelList,BasicContent} from './CheckOutStyle';
+import {Wrapper,Header,ImageWrapper,InfoWrapper,Infomartion,Heading,Detail,LeftDiv,Print,RightButton,IngredientsWrapper,Ingredients,IngredientsContent,ListWrapper,Lists,CheckBox,LabelList,BasicContent} from './CheckOutStyle';
 import {DirectionsWrapper,DirectionsContent,Directions,Box,DirectionList} from './CheckOutStyle';
 import{Title,Ratings,Reviews} from './CheckOutStyle';
-import AuthorBox from '../AuthorComponent/AuthorBox';
 function CheckOut (props){
     
     const[checked , setChecked] = useState ([false,false,false,false,false,false,false,false,false])
@@ -28,7 +27,7 @@ function CheckOut (props){
                         </div>
                     </Header>
                     <ImageWrapper>
-                        <img src = {props.data.imgUrl} alt = "image" style = {{width : '100%',height : '100%'}} />
+                        <img src = {props.data.imgUrl} alt = "recipe card" style = {{width : '100%',height : '100%'}} />
                     </ImageWrapper>
                     <InfoWrapper>
                         <LeftDiv>
@@ -62,8 +61,8 @@ function CheckOut (props){
                     <IngredientsContent>
                         <ListWrapper>
                             {props.data.ingredients.map(
-                                (value,index) =>(
-                                    <Lists> 
+                                (value,key) =>(
+                                    <Lists key= {key}> 
                                         <CheckBox type="checkbox" onChange={() => handleCheck(index)} name="ingredients" checked={checked[index]} />
                                         <LabelList checked = {checked[index]}> {value} </LabelList>
                                     </Lists>
@@ -77,8 +76,8 @@ function CheckOut (props){
                     <DirectionsContent>
                     <div>
                             {props.data.directions.map(
-                                (value,index) =>(
-                                    <div style = {{marginBottom : '20px',display : 'flex',alignItems: 'center'}}> 
+                                (value,key) =>(
+                                    <div key= {key} style = {{marginBottom : '20px',display : 'flex',alignItems: 'center'}}> 
                                         <Box>{index+1}</Box>
                                         <DirectionList>{value} </DirectionList>
                                     </div>

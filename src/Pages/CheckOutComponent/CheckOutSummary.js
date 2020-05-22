@@ -29,7 +29,7 @@ class CheckOutSummary extends Component
             <div>
                 <HeaderComponent />
                 <div style = {{maxHeight: '250px',overflow: 'hidden',opacity:'0.5'}}>
-                    <img src={sliderA_01} alt = "background image" style={{zIndex : '-1',height:'100%',width:'100%'}} />
+                    <img src={sliderA_01} alt = "checkout card" style={{zIndex : '-1',height:'100%',width:'100%'}} />
                 </div>
                 <MainWrapper>
                 <LeftWrapper>

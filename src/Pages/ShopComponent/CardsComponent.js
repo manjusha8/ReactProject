@@ -33,10 +33,10 @@ class CardsComponent extends Component {
     return (
     <div>
       <Wrapper>
-        {this.props.data.map((value, index) => (
-          <CardWrapper>
+        {this.props.data.map((value, key) => (
+          <CardWrapper key= {key}>
             <ImageWrapper onMouseOver= {()=> this.clickHandler(value.id)}>
-              <Image src={this.state.url[value.id]} alt="image" alt="products"/>
+              <Image src={this.state.url[value.id]} alt="products"/>
               <CartButton active= {this.state.id=== value.id} onClick= {()=> this.props.clicked(value.id)} style={{transition: "transform .3s,opacity .1s,background .25s"}}> 
                 <div style= {{padding: '10px'}}><FaShoppingCart color= 'white'/></div>
               </CartButton>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Items , Lists , HeaderDiv ,BannerImage,Link , ListItems, Hover} from './HeaderStyle';
+import { Items , Lists , HeaderDiv ,BannerImage,Link , ListItems} from './HeaderStyle';
 import logo from '../../assests/images/logo.jpg';
 
 function HeaderComponent() {

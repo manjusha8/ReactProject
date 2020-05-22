@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import {
     CardWrapper,
     ImageWrapper,
-    CartButton,
     Image,
     ContentWrapper,
     Category,

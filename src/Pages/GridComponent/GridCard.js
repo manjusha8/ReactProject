@@ -64,7 +64,7 @@ function GridCard(props) {
               clickHandler(value.id);
             }}
           >
-            <img src={imgUrl[value.id]} style={{ width: "100%", height: "100%" }} />
+            <img src={imgUrl[value.id]} alt= "cards" style={{ width: "100%", height: "100%" }} />
 
             <ViewButtonWrapper active={value.id === isShown}>
               <ViewButton clicked = {() => navigateToRecipe(value)}/>
