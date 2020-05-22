@@ -51,8 +51,11 @@ function GridCard(props) {
   if (tempCards.length !== 0) {
     value = tempCards;
   }
-  console.log("value",value[0])
-  return (
+  console.log("value",value)
+  console.log("length: ",value.length)
+
+  return  (
+    value.length ?
     <Wrapper>
       {value.map((value, key) => (
         
@@ -62,7 +65,7 @@ function GridCard(props) {
               clickHandler(value.id);
             }}
           >
-            <img src={imgUrl[value.id]} alt= "cards" style={{ width: "100%", height: "100%" }} />
+            <img src={imgUrl[value.id ? value.id : 0]} alt= "cards" style={{ width: "100%", height: "100%" }} />
 
             <ViewButtonWrapper active={value.id === isShown}>
               <ViewButton clicked = {() => navigateToRecipe(value)}/>
@@ -85,7 +88,7 @@ function GridCard(props) {
         </CardWrapper>
        ))} 
     </Wrapper>
-    
+    : null
   );
 
 

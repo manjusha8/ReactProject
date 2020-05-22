@@ -27,25 +27,21 @@ class RecipeForm extends Component {
 
   onSubmitHandler= (event)=> {
       event.preventDefault();
-      let recipes= []
-      recipes.push({
-          recipe: this.state.recipe,
-          description: this.state.description,
-          servings: this.state.servings,
-          prepTime: this.state.prepTime,
-          cooking: this.state.cooking,
-          directions: this.state.directions,
-          author: this.state.author,
-          ratings: this.state.ratings,
-          calories: this.state.calories
-      })
+      let recipes= {recipe: this.state.recipe,
+        description: this.state.description,
+        servings: this.state.servings,
+        prepTime: this.state.prepTime,
+        cooking: this.state.cooking,
+        directions: this.state.directions,
+        author: this.state.author,
+        ratings: this.state.ratings,
+        calories: this.state.calories}
       axios.post("https://react-my-recipe-page.firebaseio.com/.json", recipes)
         .then(response=> {
             console.log("response sent", response)
         })
         .catch(err => 
           console.log("no response from mock: ",err),
-          this.props.history.push('*')
           )
 
     console.log("forms submitted: ", recipes)
@@ -95,6 +91,12 @@ class RecipeForm extends Component {
           <TitleInput
             name="cooking"
             value={this.state.cooking}
+            onChange={this.handleChange}
+          />
+          <Text>Preparation</Text>
+          <TitleInput
+            name="preparation"
+            value={this.state.prepTime}
             onChange={this.handleChange}
           />
           <UploadButton type="submit">Submit Recipe</UploadButton>
