@@ -35,7 +35,6 @@ function ListCard (props){
             data: data
           }
         });
-        console.log("navigateToRecipe",data);
         
       }
 
@@ -50,11 +49,11 @@ return(
 
     <Wrapper>
 
-        {value.map ( value, key => (
+        {value.map ( (value, key) => (
         <CardWrapper key= {key}>
 
             <ImageWrapper onMouseOver={() => clickHandler(value.id)}>
-                <img src = {imgUrl[value.id]} alt= "cards" style = {{width : '100%' , height :'100%'}}/>
+                <img src = {imgUrl[value.id ? value.id : 0]} alt= "cards" style = {{width : '100%' , height :'100%'}}/>
                  
                 <ViewButtonWrapper active= {value.id === isShown} ><ViewButton clicked = {() => navigateToRecipe(value)}/> </ViewButtonWrapper>
                 

@@ -25,7 +25,7 @@ class Shop extends Component {
 
     componentDidMount()
     {
-        axios.get('http://demo2746324.mockable.io/chow/shop')
+        axios.get('https://demo2746324.mockable.io/chow/shop')
         .then(
           response => 
           this.setState({

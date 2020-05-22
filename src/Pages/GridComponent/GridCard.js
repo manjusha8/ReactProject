@@ -51,11 +51,9 @@ function GridCard(props) {
   if (tempCards.length !== 0) {
     value = tempCards;
   }
-  console.log("value",value)
-  console.log("length: ",value.length)
+  
 
   return  (
-    value.length ?
     <Wrapper>
       {value.map((value, key) => (
         
@@ -88,7 +86,6 @@ function GridCard(props) {
         </CardWrapper>
        ))} 
     </Wrapper>
-    : null
   );
 
 

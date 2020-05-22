@@ -21,6 +21,7 @@ import AuthorBox from "../AuthorComponent/AuthorBox";
 import axios from 'axios';
 
 
+
 class MainContent extends Component {
   state = {
     cards: [],
@@ -37,7 +38,7 @@ class MainContent extends Component {
 
   componentDidMount()
     {
-        axios.get('https://react-my-recipe-page.firebaseio.com/.json')
+      axios.get('https://react-my-recipe-page.firebaseio.com/.json')
         .then(
           response => 
           this.setState({

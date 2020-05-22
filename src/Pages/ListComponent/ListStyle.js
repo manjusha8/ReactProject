@@ -3,8 +3,6 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
     max-width : 960px;
     margin : 0 auto;
-    /* display : flex;
-    flex-wrap : wrap; */
     height : 100%;
 `;
 
@@ -50,7 +48,6 @@ export const Title = styled.div`
 `;
 
 export const Description = styled.div`
-    /* border-bottom: 1px solid #e5e5e5; */
     margin: 0 0 15px;
     padding: 0 0 22px;
     border-bottom: 1px solid #e5e5e5;
@@ -75,17 +72,14 @@ export const Icons = styled.div`
 
 export const PrepTime = styled.span`
     margin-left: 10px;
-    /* display:inline-block; */
 `;
 
 export const User = styled.span`
     margin-left: 10px;
-    /* display:inline-block; */
 `;
 
 export const Utensils = styled.span`
     margin-left: 10px;
-    /* display:inline-block; */
 `;
 
 export const IconText = styled.span`
