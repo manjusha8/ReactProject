@@ -8,7 +8,6 @@ import {
   SignUpButton,
   LoginButton,
 } from "./UserFormsStyle";
-import Login from "./Login";
 import { withRouter } from "react-router-dom";
 import formpage from "../../assests/images/formpage.jpeg";
 
@@ -16,20 +15,19 @@ class SignUp extends Component {
   state = {
     signUp: true,
     login: false,
-    // users: {
     name: "",
     email: "",
     userName: "",
     password: "",
     confirmPassword: "",
-    //   },
-    type: 'password',
-    typeConfirm: 'password',
+    type: "password",
+    typeConfirm: "password",
     emailError: "",
     nameError: "",
     userNameError: "",
     passwordError: "",
     confirmPasswordError: "",
+    userExists: "",
   };
 
   validate = () => {
@@ -41,7 +39,6 @@ class SignUp extends Component {
         this.setState({
           nameError,
         });
-        console.log("error :", this.state.nameError);
         return false;
       }
     }
@@ -57,7 +54,6 @@ class SignUp extends Component {
         this.setState({
           userNameError,
         });
-        console.log("error :", this.state.userNameError);
         return false;
       }
     }
@@ -73,7 +69,6 @@ class SignUp extends Component {
         this.setState({
           emailError,
         });
-        console.log("error :", this.state.emailError);
         return false;
       }
     }
@@ -89,7 +84,6 @@ class SignUp extends Component {
         this.setState({
           passwordError,
         });
-        console.log("error :", this.state.passwordError);
         return false;
       }
     }
@@ -106,13 +100,41 @@ class SignUp extends Component {
         this.setState({
           confirmPasswordError,
         });
-        console.log("error :", this.state.confirmPasswordError);
         return false;
       }
     }
     this.setState({
       confirmPasswordError,
     });
+
+    let users = JSON.parse(sessionStorage.getItem("users"));
+    if (users === null) {
+      users = [];
+      users.push({
+        email: this.state.email,
+        password: this.state.password,
+      });
+    } else {
+      let userFlag = true;
+      for (let i = 0; i < users.length; i++) {
+        if (this.state.email === users[i].email) {
+          userFlag = false;
+          let userExists = "user already exists!!";
+          this.setState({
+            userExists: userExists,
+          });
+         
+        }
+      }
+      if (userFlag) {
+        users.push({
+          email: this.state.email,
+          password: this.state.password,
+        });
+      }
+    }
+
+    sessionStorage.setItem("users", JSON.stringify(users));
 
     return true;
   };
@@ -122,9 +144,6 @@ class SignUp extends Component {
     const isValid = this.validate();
     console.log("validate :", isValid);
     if (isValid) {
-      console.log("newusers :", this.state.name);
-      sessionStorage.setItem("email", this.state.email);
-      sessionStorage.setItem("password", this.state.password);
       this.props.history.push("/login");
     } else {
       console.log("validate is false :");
@@ -156,20 +175,17 @@ class SignUp extends Component {
     });
   };
 
-showHide= ()=> {
-    
-    this.setState(({type}) => ({
-        type: this.state.type === 'password' ? 'text' : 'password'
-    }))
-}
+  showHide = () => {
+    this.setState(({ type }) => ({
+      type: this.state.type === "password" ? "text" : "password",
+    }));
+  };
 
-showHideConfirmPassword= ()=> {
-    
-    this.setState(({typeConfirm}) => ({
-        typeConfirm: this.state.typeConfirm === 'password' ? 'text' : 'password'
-    }))
-
-}
+  showHideConfirmPassword = () => {
+    this.setState(({ typeConfirm }) => ({
+      typeConfirm: this.state.typeConfirm === "password" ? "text" : "password",
+    }));
+  };
 
   render() {
     return (
@@ -225,39 +241,48 @@ showHideConfirmPassword= ()=> {
             </div>
             <div>
               <Text>Password:</Text>
-              <div style={{position: "relative"}}><Input
-                type={this.state.type}
-                name="password"
-                placeholder="enter your password"
-                value={this.state.password}
-                onChange={this.handleChange}
-                required
-              />
-             <Toggle onClick={this.showHide}>{this.state.type === 'password' ? 'show' : 'hide'}</Toggle>
+              <div style={{ position: "relative" }}>
+                <Input
+                  type={this.state.type}
+                  name="password"
+                  placeholder="enter your password"
+                  value={this.state.password}
+                  onChange={this.handleChange}
+                  required
+                />
+                <Toggle onClick={this.showHide}>
+                  {this.state.type === "password" ? "show" : "hide"}
+                </Toggle>
               </div>
-              {this.state.passwordError ? (
+              {this.state.passwordError || this.state.userExists ? (
+                <Error>{this.state.passwordError}</Error>
+              ) : null}
+              {this.state.userExists ? (
                 <Error>{this.state.passwordError}</Error>
               ) : null}
             </div>
             <div>
               <Text>Confirm-Password:</Text>
-              <div style= {{position: "relative"}}><Input
-                type= {this.state.typeConfirm}
-                name="confirmPassword"
-                placeholder="confirm your password"
-                value={this.state.confirmPassword}
-                onChange={this.handleChange}
-                required
-              />
-              <Toggle onClick={this.showHideConfirmPassword}>{this.state.typeConfirm === 'password' ? 'show' : 'hide'}</Toggle>
+              <div style={{ position: "relative" }}>
+                <Input
+                  type={this.state.typeConfirm}
+                  name="confirmPassword"
+                  placeholder="confirm your password"
+                  value={this.state.confirmPassword}
+                  onChange={this.handleChange}
+                  required
+                />
+                <Toggle onClick={this.showHideConfirmPassword}>
+                  {this.state.typeConfirm === "password" ? "show" : "hide"}
+                </Toggle>
               </div>
               {this.state.confirmPasswordError ? (
                 <Error>{this.state.confirmPasswordError}</Error>
               ) : null}
             </div>
             <div>
-              <SignUpButton type= "submit"
-                // onClick={this.signUpHandler}
+              <SignUpButton
+                type="submit"
                 clicked={this.state.signUp}
               >
                 Sign Up

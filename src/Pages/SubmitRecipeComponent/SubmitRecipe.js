@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import {HeaderWrapper, Header, ShopLeft, ShopRight} from '../ShopComponent/ShopStyle';
 import HeaderComponent from "../../CommonComponents/HeaderComponent/HeaderComponent";
-import SubmitRecipeForm from "./SubmitRecipeForm"
+import RecipeForm from "./RecipeForm";
 
 class SubmitRecipe extends Component {
   render() {
@@ -14,7 +14,7 @@ class SubmitRecipe extends Component {
             <ShopRight>you are here : Home > Submit Recipe</ShopRight>
           </Header>
         </HeaderWrapper>
-        <SubmitRecipeForm/>
+        <RecipeForm/>
       </div>
     );
   }

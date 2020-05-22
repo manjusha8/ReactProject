@@ -38,11 +38,10 @@ class Shop extends Component {
 
     cartHandler= (id)=> {
       let temp= [...this.state.selectedCard]
-      this.state.cardsData.map((value,index)=> {
+      this.state.cardsData.map((value,key)=> {
         if(id=== value.id)
         {
           temp.push(value)
-          console.log("temp is: ",value)
         }
       })
 
@@ -69,8 +68,6 @@ class Shop extends Component {
             </LeftWrapper>
             <RightWrapper style= {{marginRight: "20px"}}>
               <CardsComponent data= {this.state.cardsData} clicked= {this.cartHandler}/>
-              {/* <div style= {{border: "1px solid grey", height: "50px", width: "100px"}}> 
-              </div> */}
             </RightWrapper>
           </MainContent>
         </Wrapper>

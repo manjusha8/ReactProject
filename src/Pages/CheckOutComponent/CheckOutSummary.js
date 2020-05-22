@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import sliderA_01 from '../../assests/images/sliderA_01.jpg'
 import CheckOut from './CheckOut';
-import {withRouter} from 'react-router-dom';
 import SearchBox from '../SearchComponent/SearchBox';
 import AuthorBox from '../AuthorComponent/AuthorBox';
 import { MainWrapper , LeftWrapper ,RightWrapper,AuthorWrapper} from './SummaryStyle';
 import HeaderComponent from '../../CommonComponents/HeaderComponent/HeaderComponent';
-import NoPageFound from '../NoPageFoundComponent/NoPageFound';
 
 
 class CheckOutSummary extends Component

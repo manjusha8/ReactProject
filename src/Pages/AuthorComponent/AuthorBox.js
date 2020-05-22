@@ -4,8 +4,6 @@ import author from '../../assests/images/author.jpg';
 
 function AuthorBox(props){
 
-
-
     return (
 
         <Wrapper>

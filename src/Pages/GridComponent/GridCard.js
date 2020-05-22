@@ -14,7 +14,6 @@ import StarComponent from "../StarComponent/StarComponent";
 import ViewButton from "../ViewRecipeComponent/ViewButton";
 import { FaClock } from "react-icons/fa";
 import {withRouter} from 'react-router-dom';
-import NotAvailable from "../NothingFound/NotAvailable";
 
 function GridCard(props) {
 
@@ -60,7 +59,6 @@ function GridCard(props) {
       {value.map((value, key) => (
         
         <CardWrapper key= {key}>
-          
           <ImageWrapper
             onMouseOver={() => {
               clickHandler(value.id);
@@ -72,7 +70,6 @@ function GridCard(props) {
               <ViewButton clicked = {() => navigateToRecipe(value)}/>
             </ViewButtonWrapper>
           </ImageWrapper>
-
           <ContentWrapper>
             <Title>
               {value.recipe} <hr />
@@ -87,9 +84,7 @@ function GridCard(props) {
               </Time>
             </Content>
           </ContentWrapper>
-          
         </CardWrapper>
-        
        ))} 
     </Wrapper>
     

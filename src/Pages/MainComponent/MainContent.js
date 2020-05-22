@@ -85,17 +85,10 @@ class MainContent extends Component {
             available= false
             temp.push(card);
           }
-          else{
-            available= true
-            // this.setState({
-            //   available: available
-            // })
-          }
         });
       }
 
         this.setState({
-          available: available,
           tempCards: temp
         })
         console.log("available: ",this.state.available)

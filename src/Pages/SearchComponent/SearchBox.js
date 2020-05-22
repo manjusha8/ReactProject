@@ -1,15 +1,9 @@
 import React , {Component} from 'react';
 import {InputBox,Search} from './SearchStyle';
 import { FaSearch } from 'react-icons/fa';
-import NotAvailable from '../NothingFound/NotAvailable';
 
 class SearchBox extends Component {
    
-
-
-    
-
-
     render ()
     {
         return (

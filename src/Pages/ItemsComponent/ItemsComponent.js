@@ -24,8 +24,6 @@ class ItemsComponent extends Component {
   render() {
     return (
       <div>
-          {console.log("props: ",this.props.data)}
-        {/* {this.props.data.map((value, index) => ( */}
           <CardWrapper>
             <ImageWrapper>
               <Image src={this.state.url[this.props.data.id]} alt="image" />
@@ -37,7 +35,6 @@ class ItemsComponent extends Component {
               <Price>{this.props.data.price}</Price>
             </ContentWrapper>
           </CardWrapper>
-        {/* ))} */}
       </div>
     );
   }

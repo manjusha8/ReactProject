@@ -17,7 +17,6 @@ import {
   CheckOut,
   NoItems
 } from "./CartStyle";
-import sliderA_01 from "../../assests/images/sliderA_01.jpg";
 import { withRouter } from "react-router-dom";
 
 class CartComponent extends Component {
@@ -31,8 +30,8 @@ class CartComponent extends Component {
       require("../../assests/images/cumin_seeds.webp"),
       require("../../assests/images/garlic_granules.webp"),
   ],
-  add: 0
   }
+
   checkOutHandler = (data) => {
     this.props.history.push({
       pathname: "/checkoutpage",
@@ -40,7 +39,6 @@ class CartComponent extends Component {
         data: data
       }
     });
-    console.log("value in cart: ",data)
   };
 
   render() {
@@ -74,9 +72,6 @@ class CartComponent extends Component {
                   </Title>
                   <Price>
                     <span></span>1<span>X {value.price}</span>
-                    {/* {this.setState({
-                      add: parseInt(this.state.add) + parseInt(value.price)
-                    })} */}
                   </Price>
                 </TitleBlock> 
 
@@ -98,9 +93,7 @@ class CartComponent extends Component {
                 </CartWrapper>))}
             </div> 
           : 
-          // <CartWrapper>
             <p>no items in cart</p>
-          // </CartWrapper>
           
           }
           

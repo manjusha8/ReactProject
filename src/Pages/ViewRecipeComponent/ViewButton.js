@@ -2,9 +2,6 @@ import React from 'react';
 import {Wrapper , ViewButtonWrapper , Button} from './ViewStyle';
 
 function ViewButton(props){
-
-
-    
         return(
             <Wrapper>
                 <ViewButtonWrapper>

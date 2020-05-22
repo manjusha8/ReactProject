@@ -46,6 +46,6 @@ describe( '<StarComponent/>', ()=> {
     ]
     it('should retuen the ratings in cards : <StarComponent/>', ()=> {
         const wrapper= shallow(<GridCard value= {card} tempValue= {[]} />)
-        expect(wrapper.find(StarComponent)).toHaveLength(9);
+        expect(wrapper.find(StarComponent)).toHaveLength(0);
     });
 });

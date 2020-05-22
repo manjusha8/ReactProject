@@ -10,7 +10,6 @@ import {
   Title,
   Price,
 } from "./CardsStyle";
-import sliderA_01 from "../../assests/images/sliderA_01.jpg";
 import {FaShoppingCart} from 'react-icons/fa';
 
 class CardsComponent extends Component {
@@ -28,10 +27,7 @@ class CardsComponent extends Component {
 
   clickHandler= (id)=> {
     this.setState({id})
-    console.log("cart card id: ",id);
   }
-
-
 
   render() {
     return (
@@ -40,7 +36,7 @@ class CardsComponent extends Component {
         {this.props.data.map((value, index) => (
           <CardWrapper>
             <ImageWrapper onMouseOver= {()=> this.clickHandler(value.id)}>
-              <Image src={this.state.url[value.id]} alt="image" />
+              <Image src={this.state.url[value.id]} alt="image" alt="products"/>
               <CartButton active= {this.state.id=== value.id} onClick= {()=> this.props.clicked(value.id)} style={{transition: "transform .3s,opacity .1s,background .25s"}}> 
                 <div style= {{padding: '10px'}}><FaShoppingCart color= 'white'/></div>
               </CartButton>

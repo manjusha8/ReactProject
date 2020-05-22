@@ -17,28 +17,35 @@ class Login extends Component {
     password: "",
 
     loginError: "",
-    // passwordError: ''
     login: true,
     signUp: false,
-    type: 'password'
+    type: "password",
   };
 
   validate = () => {
-    if (
-      this.state.email === sessionStorage.getItem("email") &&
-      this.state.password === sessionStorage.getItem("password")
-    ) {
-      this.setState({
-        loginError: "",
-      });
-      return true;
-    } else {
-      this.setState({
-        loginError: "invalid email or password",
-      });
+    let loginError = "";
+    let users = JSON.parse(sessionStorage.getItem("users"));
+    let validUser = false;
+    for (let i = 0; i < users.length; i++) {
+      console.log("users:", users[users.length - 1]);
+      if (this.state.email === users[i].email) {
+        if (users[i].password === this.state.password) {
+          loginError = "";
+          return true;
+          break;
+        } else {
+          validUser = true;
+        }
+      } else {
+        validUser = true;
+      }
     }
 
-    return false;
+    if (validUser) {
+      this.setState({
+        loginError: "new user please SignUp!! ",
+      });
+    }
   };
 
   onSubmitHandler = (event) => {
@@ -78,13 +85,11 @@ class Login extends Component {
     this.props.history.push("/");
   };
 
-  showHide= ()=> {
-    
-    this.setState(({type}) => ({
-        type: this.state.type === 'password' ? 'text' : 'password'
-    }))
-
-  }
+  showHide = () => {
+    this.setState(({ type }) => ({
+      type: this.state.type === "password" ? "text" : "password",
+    }));
+  };
 
   render() {
     return (
@@ -111,25 +116,28 @@ class Login extends Component {
             </div>
             <div>
               <Text>Password</Text>
-              <div style= {{position: "relative"}}><Input
-                type={this.state.type}
-                placeholder="enter your password"
-                name="password"
-                onChange={this.handleChange}
-                required
-              />
-              <Toggle onClick={this.showHide}>{this.state.type === 'password' ? 'show' : 'hide'}</Toggle>
+              <div style={{ position: "relative" }}>
+                <Input
+                  type={this.state.type}
+                  placeholder="enter your password"
+                  name="password"
+                  onChange={this.handleChange}
+                  required
+                />
+                <Toggle onClick={this.showHide}>
+                  {this.state.type === "password" ? "show" : "hide"}
+                </Toggle>
               </div>
-              {/* {this.state.passwordError ? <Error>{this.state.passwordError}</Error> : null} */}
             </div>
             <div>
-              <SignUpButton 
+              <SignUpButton
                 onClick={this.signUpHandler}
                 clicked={this.state.signUp}
               >
                 Sign Up
               </SignUpButton>
-              <LoginButton type= " submit"
+              <LoginButton
+                type=" submit"
                 onClick={this.loginHandler}
                 clicked={this.state.login}
               >
@@ -137,7 +145,6 @@ class Login extends Component {
               </LoginButton>
             </div>
           </Forms>
-          
         </RightWrapper>
       </Wrapper>
     );

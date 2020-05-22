@@ -8,26 +8,17 @@ function CheckOut (props){
     
     const[checked , setChecked] = useState ([false,false,false,false,false,false,false,false,false])
 
-
     const handleCheck = (id) =>
     {
-        console.log("id",id);
-        console.log("checked",checked);
         let newChecked = [...checked];
         newChecked[id] = !newChecked[id]
-        console.log("newChecked",newChecked);
         setChecked (newChecked);
-        console.log("Setchecked",checked);
-
-        // setChecked(id);
 
     }
 
     
         return(
             <Wrapper>
-                {/* <Folded>
-                </Folded> */}
                 <div>
                     <Header>
                         <Title>{props.data.recipe}</Title>
@@ -96,9 +87,7 @@ function CheckOut (props){
                         </div>
                     </DirectionsContent>
                 </DirectionsWrapper>
-                {/* // <div>
-                //     {/* <AuthorBox/> */}
-                {/* </div>   */}
+                
             </Wrapper>
         );
 

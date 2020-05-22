@@ -3,10 +3,6 @@ import styled from 'styled-components';
 
 
 export const Wrapper= styled.div`
-    /* max-width: 960px; */
-    /* margin: 0px auto;
-    display: flex;
-    justify-content: space-between; */
     width: 100%;
     display: flex;
 `;
@@ -18,7 +14,6 @@ export const LeftWrapper= styled.div`
 `;
 
 export const RightWrapper= styled.div`
-    /* margin : 0 30px; */
     width: 40%;
     box-sizing: border-box;
     padding: 20px;
@@ -26,13 +21,9 @@ export const RightWrapper= styled.div`
 
 export const ImageWrapper= styled.div`
     overflow-y: hidden;
-    /* height: 500px;
-    width: 500px; */ 
-    /* height: 700px; */
 `;
 
 export const SignUpButton= styled.button`
-    
     display: inline-block;
     border-radius : 20px;
     background-color: ${props => props.clicked ? '#8dc63f' : null};

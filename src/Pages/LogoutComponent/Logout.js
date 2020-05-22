@@ -6,8 +6,6 @@ import {withRouter} from 'react-router-dom';
 class Logout extends Component {
 
     logout= ()=> {
-        sessionStorage.removeItem('email');
-        sessionStorage.removeItem('password');
         this.props.history.push("/")
     }
 
