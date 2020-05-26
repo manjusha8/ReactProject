@@ -10,6 +10,7 @@ import {
 } from "./UserFormsStyle";
 import { withRouter } from "react-router-dom";
 import formpage from "../../assests/images/formpage.jpeg";
+import fire from '../../Config/Fire';
 
 class SignUp extends Component {
   state = {
@@ -107,48 +108,30 @@ class SignUp extends Component {
       confirmPasswordError,
     });
 
-    let users = JSON.parse(sessionStorage.getItem("users"));
-    if (users === null) {
-      users = [];
-      users.push({
-        email: this.state.email,
-        password: this.state.password,
-      });
-    } else {
-      let userFlag = true;
-      for (let i = 0; i < users.length; i++) {
-        if (this.state.email === users[i].email) {
-          userFlag = false;
-          let userExists = "user already exists!!";
-          this.setState({
-            userExists: userExists,
-          });
-         
-        }
-      }
-      if (userFlag) {
-        users.push({
-          email: this.state.email,
-          password: this.state.password,
-        });
-      }
-    }
-
-    sessionStorage.setItem("users", JSON.stringify(users));
-
+    
     return true;
   };
 
   onSubmitHandler = (event) => {
     event.preventDefault();
+
     const isValid = this.validate();
-    console.log("validate :", isValid);
     if (isValid) {
+    fire.auth().createUserWithEmailAndPassword(this.state.email,this.state.password).then((u)=> {
+
       this.props.history.push("/login");
-    } else {
-      console.log("validate is false :");
-    }
-  };
+
+    })
+    .catch((error)=> {
+      console.log("error",error);
+    })
+  }
+ else {
+  console.log("validate is false :");
+}
+  
+
+};
 
   loginHandler = () => {
     this.setState({

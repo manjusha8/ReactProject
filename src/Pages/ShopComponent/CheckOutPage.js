@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Wrapper } from "./checkOutStyle";
+import { Wrapper, ContentWrapper } from "./checkOutStyle";
 import {HeaderWrapper, Header, ShopLeft, ShopRight} from './ShopStyle';
 import ItemsComponent from '../ItemsComponent/ItemsComponent';
 import HeaderComponent from "../../CommonComponents/HeaderComponent/HeaderComponent";
@@ -18,6 +18,7 @@ class CheckOutPage extends Component {
         this.setState({
           data: result.data
         });
+        localStorage.removeItem("cardsData")
       }
     
     }
@@ -36,14 +37,14 @@ class CheckOutPage extends Component {
           <div>
           <ItemsComponent data= {this.state.data}/>
         </div>
-        <div style= {{marginLeft: "50px"}}>
+        <ContentWrapper>
             <div>your order has been placed , will be delivered soon !! </div>
 
-            <div style={{ textAlign: "center", marginTop: "20px" }}> Thank You !! </div>
-            <div style={{ textAlign: "center", marginTop: "20px"}}>
+            <div style={{marginTop: "20px" }}> Thank You !! </div>
+            <div style={{marginTop: "20px"}}>
               Go Back To <a href="/shop">shop</a>
             </div>
-          </div>
+          </ContentWrapper>
         </Wrapper>
       </div>
     ) : null;

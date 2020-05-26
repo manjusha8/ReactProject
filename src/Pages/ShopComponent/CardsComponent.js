@@ -45,7 +45,7 @@ class CardsComponent extends Component {
             <ContentWrapper>
               <Category>{value.category}</Category>
               <Title>{value.title}</Title>
-              <Price>{value.price}</Price>
+              <Price>${value.price}</Price>
             </ContentWrapper>
           </CardWrapper>
         ))}

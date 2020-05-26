@@ -2,11 +2,13 @@ import React, {Component} from "react";
 import {HeaderWrapper, Header, ShopLeft, ShopRight, Button} from './LogoutStyle';
 import HeaderComponent from "../../CommonComponents/HeaderComponent/HeaderComponent";
 import {withRouter} from 'react-router-dom';
+import fire from "../../Config/Fire";
 
 class Logout extends Component {
 
     logout= ()=> {
-        this.props.history.push("/")
+
+      fire.auth().signOut();
     }
 
   render() {

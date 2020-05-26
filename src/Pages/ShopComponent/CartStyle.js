@@ -91,12 +91,10 @@ export const CheckOut = styled.button`
     cursor: pointer;
 `;
 
-export const NoItems = styled.div`
-    font-weight: 700;
-    font-size: 13px;
-    color: #aaa;
-    padding-top: 100px;
-    padding-left: 55px;
-    text-transform: uppercase;
-    border: 1px solid black;
+export const CartEmpty = styled.p`
+  font-size: 16px;
+  font-weight: 700;
+  color: #606060;
+  text-transform: uppercase;
+  text-align: center;
 `;

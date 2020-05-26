@@ -27,7 +27,7 @@ export const Text= styled.h4`
 export const UploadButton = styled.button`
     margin: 20px 0 0 50px;
     border-radius : 3px;
-    background-color: #8dc63f;
+    background-color: ${props=> props.theme.backgroundColor};
     color: white;
     outline: none;
     border: none;

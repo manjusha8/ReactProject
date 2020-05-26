@@ -52,6 +52,7 @@ function GridCard(props) {
     value = tempCards;
   }
   
+  console.log("grid cards response: ",value);
 
   return  (
     <Wrapper>
@@ -60,12 +61,12 @@ function GridCard(props) {
         <CardWrapper key= {key}>
           <ImageWrapper
             onMouseOver={() => {
-              clickHandler(value.id);
+              clickHandler(key);
             }}
           >
             <img src={imgUrl[value.id ? value.id : 0]} alt= "cards" style={{ width: "100%", height: "100%" }} />
 
-            <ViewButtonWrapper active={value.id === isShown}>
+            <ViewButtonWrapper active={key === isShown}>
               <ViewButton clicked = {() => navigateToRecipe(value)}/>
             </ViewButtonWrapper>
           </ImageWrapper>

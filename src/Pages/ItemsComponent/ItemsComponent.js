@@ -8,6 +8,7 @@ import {
     Title,
     Price,
   } from "../ShopComponent/CardsStyle";
+  import {Wrapper} from './Style';
 
 class ItemsComponent extends Component {
     state = {
@@ -22,19 +23,22 @@ class ItemsComponent extends Component {
     }
   render() {
     return (
-      <div>
-          <CardWrapper>
-            <ImageWrapper>
-              <Image src={this.state.url[this.props.data.id]} alt="image" />
-            </ImageWrapper>
+      <Wrapper>
+        {this.props.data.map((value, key)=> (
+          <CardWrapper key={key}>
+          <ImageWrapper>
+            <Image src={this.state.url[value.id]} alt="image" />
+          </ImageWrapper>
 
-            <ContentWrapper>
-              <Category>{this.props.data.category}</Category>
-              <Title>{this.props.data.title}</Title>
-              <Price>{this.props.data.price}</Price>
-            </ContentWrapper>
-          </CardWrapper>
-      </div>
+          <ContentWrapper>
+            <Category>{value.category}</Category>
+            <Title>{value.title}</Title>
+            <Price>{value.price}</Price>
+          </ContentWrapper>
+        </CardWrapper>
+    ))}
+          
+      </Wrapper>
     );
   }
 }

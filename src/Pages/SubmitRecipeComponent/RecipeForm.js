@@ -9,7 +9,7 @@ class RecipeForm extends Component {
     ingredients: "",
     directions: "",
     servings: "",
-    prepTime: "",
+    prepTime: "30 min",
     calories: "",
     cooking: "",
     ratings: 3,
@@ -27,7 +27,8 @@ class RecipeForm extends Component {
 
   onSubmitHandler= (event)=> {
       event.preventDefault();
-      let recipes= {recipe: this.state.recipe,
+      let recipes= {
+        recipe: this.state.recipe,
         description: this.state.description,
         servings: this.state.servings,
         prepTime: this.state.prepTime,
@@ -35,10 +36,12 @@ class RecipeForm extends Component {
         directions: this.state.directions,
         author: this.state.author,
         ratings: this.state.ratings,
-        calories: this.state.calories}
-      // // axios.post("https://react-my-recipe-page.firebaseio.com/.json", recipes)
+        Calories: this.state.calories,
+        prepTime: this.state.prepTime
+      }
+      // axios.post("https://react-my-recipe-page.firebaseio.com/.json", recipes)
       //   .then(response=> {
-      //       console.log("response sent", response)
+      //       console.log("response sent to home page: ", response)
       //   })
       //   .catch(err => 
       //     console.log("no response from mock: ",err),

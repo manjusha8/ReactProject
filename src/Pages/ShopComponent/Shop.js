@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useCallback } from "react";
 import {
   HeaderWrapper,
   Header,
@@ -25,6 +25,7 @@ class Shop extends Component {
 
     componentDidMount()
     {
+      setTimeout(()=> {
         axios.get('https://demo2746324.mockable.io/chow/shop')
         .then(
           response => 
@@ -36,6 +37,7 @@ class Shop extends Component {
         .catch(err => 
           this.props.history.push("*")
         )
+      }, 3000);
     }
 
     cartHandler= (id)=> {
@@ -46,10 +48,12 @@ class Shop extends Component {
           temp.push(value)
         }
       })
-
+      
+      
       this.setState({
         selectedCard: temp
       })
+
     }
 
   render() {

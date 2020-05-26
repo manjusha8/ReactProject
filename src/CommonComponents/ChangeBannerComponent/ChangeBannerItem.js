@@ -198,7 +198,6 @@ class ChangeBannerItem extends Component {
           <BannerButtons
             recipeItem={this.state.recipeItem}
             clicked={this.clickHandler}
-            color={this.state.activeColor}
             active={this.state.activestate}
           />
         </div>

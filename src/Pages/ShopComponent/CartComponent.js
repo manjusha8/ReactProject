@@ -13,8 +13,8 @@ import {
   SubtotalAmount,
   Subtotal,
   SubtotalPrice,
-  ViewCart,
   CheckOut,
+  CartEmpty
 } from "./CartStyle";
 import { withRouter } from "react-router-dom";
 
@@ -40,6 +40,18 @@ class CartComponent extends Component {
     });
   };
 
+
+  findSubTotal = () => {
+    let total = 0;
+    this.props.data.map((value, key) => {
+       total = value.price + total;
+    });
+    return total;
+  };
+
+
+
+
   render() {
     return (
       <Wrapper>
@@ -49,14 +61,13 @@ class CartComponent extends Component {
             <BreakThrough />
           </div>
         </div>
-        {console.log("cart component props: ", this.props)}
         <div style={{width: "230px", padding: "8px 10px 30px 10px"}}>
-          {this.props.data !== null ? 
-          <div>
+          {this.props.data.length ? 
+          <CartWrapper>
             {this.props.data.map((value, key) => (
-              <CartWrapper key= {key}>
-                <ImageBlock>
-                  <ul style={{ listStyleType: "none" }}>
+                  <div key= {key}>
+                    <ImageBlock>
+                    <ul style={{ listStyleType: "none" }}>
                     <ImageWrapper>
                       <Image
                         src={this.state.url[value.id]}
@@ -64,36 +75,38 @@ class CartComponent extends Component {
                       />
                     </ImageWrapper>
                   </ul>
-                </ImageBlock>
-                <TitleBlock>
+                  </ImageBlock>
+                  <TitleBlock>
                   <Title>
                     {value.title}
                   </Title>
                   <Price>
-                    <span></span>1<span>X {value.price}</span>
+                    <span></span>{value.quantity}<span>X {value.price}</span>
                   </Price>
-                </TitleBlock> 
+                  </TitleBlock> 
+                </div>
 
+            ))}
+              <div>
                 <hr style={{ width: "80%", backgroundColor: "#f2f2f2" }} />
                 <SubtotalAmount>
                   <Subtotal>Subtotal: </Subtotal>
-                  <SubtotalPrice>{value.price}</SubtotalPrice>
+                  <SubtotalPrice>${this.findSubTotal()}</SubtotalPrice>
                 </SubtotalAmount>
                 <div style={{ textAlign: "center" }}>
-                  <ViewCart disabled>
-                    VIEW CART
-                  </ViewCart>
-                </div>
-                <div style={{ textAlign: "center" }}>
-                  <CheckOut onClick={()=> this.checkOutHandler(value)}>
+                  <CheckOut
+                   onClick={()=> this.checkOutHandler(this.props.data)}
+                  >
                     CHECKOUT
                   </CheckOut>
                 </div>
-                </CartWrapper>))}
-            </div> 
+              </div>
+           </CartWrapper>
+
           : 
-            <p>no items in cart</p>
-          
+          <CartWrapper>
+              <CartEmpty>no items in cart!!</CartEmpty>
+          </CartWrapper>
           }
           
         </div>

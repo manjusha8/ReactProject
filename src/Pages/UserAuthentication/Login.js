@@ -10,6 +10,7 @@ import {
   SignUpButton,
   LoginButton,
 } from "./UserFormsStyle";
+import fire from "../../Config/Fire";
 
 class Login extends Component {
   state = {
@@ -22,43 +23,31 @@ class Login extends Component {
     type: "password",
   };
 
-  validate = () => {
-    let loginError = "";
-    let users = JSON.parse(sessionStorage.getItem("users"));
-    let validUser = false;
-    for (let i = 0; i < users.length; i++) {
-      console.log("users:", users[users.length - 1]);
-      if (this.state.email === users[i].email) {
-        if (users[i].password === this.state.password) {
-          loginError = "";
-          return true;
-        } else {
-          validUser = true;
-          loginError= "email or password is incorrect"
-        }
-      } else {
-        validUser = true;
-        loginError= "new user please SignUp!! "
-      }
-    }
-
-    if (validUser) {
-      this.setState({
-        loginError: loginError
-      });
-    }
-  };
 
   onSubmitHandler = (event) => {
     event.preventDefault();
-    const isValid = this.validate();
-    console.log("validate :", isValid);
-    if (isValid) {
-      console.log("newusers :", this.state.name);
+    
+    fire.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((u)=> {
       this.props.history.push("/home");
-    } else {
-      console.log("validate is false s");
-    }
+
+    })
+    .catch((err)=>
+    {
+      let loginError= ""
+      if(err.code=== 'auth/user-not-found')
+      {
+        loginError= "new user please signup!!"
+      }
+      if(err.code=== 'auth/wrong-password'){
+        loginError= "password incorect"
+      }
+      this.setState({
+        loginError: loginError
+      })
+    console.log("login error: ",err)
+    });
+
+
   };
 
   handleChange = (event) => {

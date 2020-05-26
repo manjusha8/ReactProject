@@ -18,8 +18,7 @@ import GridCard from "../GridComponent/GridCard";
 import ListCard from "../ListComponent/ListCard";
 import SearchBox from "../SearchComponent/SearchBox";
 import AuthorBox from "../AuthorComponent/AuthorBox";
-import axios from 'axios';
-
+import axios from '../../axios_recipes';
 
 
 class MainContent extends Component {
@@ -31,20 +30,25 @@ class MainContent extends Component {
     list: false,
     input : '',
     availableCards: [],
-    loading: true
+    loading: true,
+
   };
 
   onHover = () => this.setState({ hover: true });
 
   componentDidMount()
     {
-      axios.get('https://react-my-recipe-page.firebaseio.com/.json')
+      window.scrollTo(0,0)
+      axios
+      .get('/.json')
         .then(
           response => 
           this.setState({
             loading: false,
             cards: response.data
-          })
+          }),
+          console.log("cards in home page: ", this.state.cards),
+
         )
         .catch(err => console.log("no response from mock: ",err))
     }

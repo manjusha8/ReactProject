@@ -37,7 +37,7 @@ export const Buttons = styled.div`
 `;
 
 export const ListButton = styled.button`
-    background-color : ${props => props.state ? '#8dc63f' : null};
+    background-color : ${props => props.state ? props.theme.backgroundColor : null};
     border : none ;
     padding : 12px 15px;
     border-radius : 5px;
@@ -46,7 +46,7 @@ export const ListButton = styled.button`
 `;
 
 export const GridButton = styled.button`
-    background-color : ${props => props.state ? '#8dc63f' : null};
+    background-color : ${props => props.state ? props.theme.backgroundColor : null};
     border : none;
     padding : 12px 15px;
     border-radius : 5px;

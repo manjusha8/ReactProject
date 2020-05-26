@@ -12,7 +12,6 @@ export const ViewButtonWrapper = styled.div`
 `;
 
 export const Button = styled.button`
-    /* border : 1px solid ${props=> props.theme.color}; */
     border: none;
     padding : 20px;
     color : ${props=> props.theme.color};

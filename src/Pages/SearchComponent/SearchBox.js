@@ -1,5 +1,5 @@
 import React , {Component} from 'react';
-import {InputBox,Search} from './SearchStyle';
+import {InputBox,Search, SearchIcon} from './SearchStyle';
 import { FaSearch } from 'react-icons/fa';
 
 class SearchBox extends Component {
@@ -11,9 +11,9 @@ class SearchBox extends Component {
                 <div>
                 <InputBox type = "text" placeholder = "Search For Recipes"  onChange={this.props.changeHandler} value= {this.props.inputValue}/>
                 </div>
-                <div style = {{backgroundColor : '#8dc63f' , width : '44px',display : 'inline-block',cursor: 'pointer',height: '44px'}}>
+                <SearchIcon>
                 <Search><FaSearch color = 'white' padding = '12px'/></Search>
-                </div>
+                </SearchIcon>
                 
             </div>
         );

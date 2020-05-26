@@ -11,7 +11,7 @@ export const Recipie = styled.div`
     border-left: 1px solid #e3e3e3;
     width:25%;
     height:100%;
-    background-color:${props => props.active ? '#8DC63F' : '#F2F2F2' };
+    background-color:${props => props.active ? props.theme.backgroundColor : '#F2F2F2' };
     display: flex;
     align-items: center;
     justify-content: center;

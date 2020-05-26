@@ -21,7 +21,7 @@ function HeaderComponent() {
                 <Items >
                     {names.map((names, key) => (
                     <ListItems key= {key} active= {names.active}> 
-                        <Link active= {names.active} href ={names.url}>{names.header}</Link>
+                        <Link class= "nav" active= {names.active} href ={names.url}>{names.header}</Link>
                     </ListItems>
                     ))}
                 </Items>

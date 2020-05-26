@@ -27,7 +27,8 @@ export const BannerImage = styled.div`
     text-decoration : none;
     text-decoration : none;
     color:gray;
-    border-bottom: ${props=> props.active ? "10px solid #8DC63F" : 'none'};
+    border-bottom: ${props=> props.active ? "10px solid " : 'none'};
+    border-bottom-color: ${props=> props.theme.backgroundColor};
     padding-bottom: ${props=> props.active ? "30px" : "0"};
 
     &:hover {
