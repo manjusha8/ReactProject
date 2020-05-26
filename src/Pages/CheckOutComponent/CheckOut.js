@@ -6,7 +6,20 @@ import{Title,Ratings,Reviews} from './CheckOutStyle';
 function CheckOut (props){
     
     const[checked , setChecked] = useState ([false,false,false,false,false,false,false,false,false])
-    
+    const [imgUrl]= useState(
+        [
+          require("../../assests/images/recipeThumb-01.jpg"),
+          require("../../assests/images/recipeThumb-02.jpg"),
+          require("../../assests/images/recipeThumb-03.jpg"),
+          require("../../assests/images/recipeThumb-04.jpg"),
+          require("../../assests/images/recipeThumb-05.jpg"),
+          require("../../assests/images/recipeThumb-06.jpg"),
+          require("../../assests/images/recipeThumb-07.jpg"),
+          require("../../assests/images/recipeThumb-08.jpg"),
+          require("../../assests/images/recipeThumb-09.jpg"),
+        ]
+      )
+
     const handleCheck = (id) =>
     {
         let newChecked = [...checked];
@@ -26,7 +39,7 @@ function CheckOut (props){
                         </div>
                     </Header>
                     <ImageWrapper>
-                        <img src = {props.data.imgUrl} alt = "recipe card" style = {{width : '100%',height : '100%'}} />
+                        <img src = {props.data.imgUrl? props.data.imgUrl: imgUrl[props.data.id] } alt = "recipe card" style = {{width : '100%',height : '100%'}} />
                     </ImageWrapper>
                     <InfoWrapper>
                         <LeftDiv>
